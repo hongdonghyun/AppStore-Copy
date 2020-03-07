@@ -13,22 +13,30 @@ class DetailTitleCell: UITableViewCell {
     
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView(image: UIImage(named: "xxx"))
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 23, weight: .bold)
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         label.text = "당근마켓 - 중고거래 필수앱"
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .gray
         label.text = "우리 동네 중고 직거래 벼룩장터"
         return label
     }()
     
     private let downloadBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("받기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitle("     받기     ", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.backgroundColor = .link
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -90,42 +98,47 @@ class DetailTitleCell: UITableViewCell {
 extension DetailTitleCell {
     private func setupUI() {
         let safeArea = self.contentView
-        [topView, bottomView].forEach {
+        [thumbnailImageView, topView, bottomView].forEach {
             self.contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            topView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            topView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            thumbnailImageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            thumbnailImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+            thumbnailImageView.widthAnchor.constraint(equalToConstant: 120),
+            thumbnailImageView.heightAnchor.constraint(equalToConstant: 120),
+            
+            topView.topAnchor.constraint(equalTo: thumbnailImageView.topAnchor),
+            topView.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor),
+            topView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
+            topView.bottomAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor),
             
             bottomView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20),
             bottomView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            bottomView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            bottomView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20)
         ])
         
-        [thumbnailImageView, titleLabel, descriptionLabel, downloadBtn, shareBtn].forEach {
+        [titleLabel, descriptionLabel, downloadBtn, shareBtn].forEach {
             topView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            thumbnailImageView.topAnchor.constraint(equalTo: topView.topAnchor),
-            thumbnailImageView.bottomAnchor.constraint(equalTo: topView.bottomAnchor),
-            thumbnailImageView.leadingAnchor.constraint(equalTo: topView.leadingAnchor),
-            thumbnailImageView.widthAnchor.constraint(equalToConstant: 100),
-            thumbnailImageView.heightAnchor.constraint(equalToConstant: 100),
-            
-            titleLabel.topAnchor.constraint(equalTo: thumbnailImageView.topAnchor, constant: 5),
-            titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5),
+            titleLabel.topAnchor.constraint(equalTo: topView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
+            titleLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.5),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5),
+            descriptionLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
+            descriptionLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.2),
             
             downloadBtn.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-            downloadBtn.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5),
+            downloadBtn.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
+            downloadBtn.bottomAnchor.constraint(equalTo: topView.bottomAnchor),
+            downloadBtn.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.3),
             
             shareBtn.centerYAnchor.constraint(equalTo: downloadBtn.centerYAnchor),
             shareBtn.trailingAnchor.constraint(equalTo: topView.trailingAnchor)
@@ -144,13 +157,13 @@ extension DetailTitleCell {
             rankContentView.topAnchor.constraint(equalTo: bottomView.topAnchor),
             rankContentView.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor),
             rankContentView.leadingAnchor.constraint(equalTo:ratingContentView.trailingAnchor),
-            rankContentView.widthAnchor.constraint(equalTo: ratingContentView.widthAnchor),
+            rankContentView.widthAnchor.constraint(equalTo: ratingContentView.widthAnchor, multiplier: 0.5),
             
             ageContentView.topAnchor.constraint(equalTo: bottomView.topAnchor),
             ageContentView.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor),
             ageContentView.leadingAnchor.constraint(equalTo:rankContentView.trailingAnchor),
             ageContentView.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor),
-            ageContentView.widthAnchor.constraint(equalTo: ratingContentView.widthAnchor),
+            ageContentView.widthAnchor.constraint(equalTo: ratingContentView.widthAnchor, multiplier: 0.5),
 
         ])
         
@@ -178,11 +191,13 @@ extension DetailTitleCell {
         NSLayoutConstraint.activate([
             rankLabel.topAnchor.constraint(equalTo: rankContentView.topAnchor),
             rankLabel.bottomAnchor.constraint(equalTo: rankContentView.bottomAnchor),
-            rankLabel.leadingAnchor.constraint(equalTo: rankContentView.leadingAnchor),
-            rankLabel.trailingAnchor.constraint(equalTo: rankContentView.trailingAnchor),
+            rankLabel.centerXAnchor.constraint(equalTo: rankContentView.centerXAnchor),
+//            rankLabel.leadingAnchor.constraint(equalTo: rankContentView.leadingAnchor),
+//            rankLabel.trailingAnchor.constraint(equalTo: rankContentView.trailingAnchor),
             
             rankDescriptionLabel.topAnchor.constraint(equalTo: rankLabel.bottomAnchor),
-            rankDescriptionLabel.leadingAnchor.constraint(equalTo: rankLabel.leadingAnchor),
+            rankDescriptionLabel.centerXAnchor.constraint(equalTo: rankLabel.centerXAnchor),
+//            rankDescriptionLabel.leadingAnchor.constraint(equalTo: rankLabel.leadingAnchor),
         ])
 
         [ageLabel, ageDescriptionLabel].forEach {
@@ -193,11 +208,11 @@ extension DetailTitleCell {
         NSLayoutConstraint.activate([
             ageLabel.topAnchor.constraint(equalTo: ageContentView.topAnchor),
             ageLabel.bottomAnchor.constraint(equalTo: ageContentView.bottomAnchor),
-            ageLabel.leadingAnchor.constraint(equalTo: ageContentView.leadingAnchor),
+//            ageLabel.leadingAnchor.constraint(equalTo: ageContentView.leadingAnchor),
             ageLabel.trailingAnchor.constraint(equalTo: ageContentView.trailingAnchor),
             
             ageDescriptionLabel.topAnchor.constraint(equalTo: ageLabel.bottomAnchor),
-            ageDescriptionLabel.leadingAnchor.constraint(equalTo: ageLabel.leadingAnchor),
+            ageDescriptionLabel.trailingAnchor.constraint(equalTo: ageLabel.trailingAnchor),
         ])
     }
 }

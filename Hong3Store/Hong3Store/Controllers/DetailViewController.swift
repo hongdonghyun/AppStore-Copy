@@ -20,7 +20,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAttr()
-        
+//        rootView.tableView.rowHeight = UITableView.automaticDimension
+//        rootView.tableView.estimatedRowHeight = UITableView.automaticDimension
     }
 
 }
@@ -31,7 +32,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 150
     }
     
     // DataSource
