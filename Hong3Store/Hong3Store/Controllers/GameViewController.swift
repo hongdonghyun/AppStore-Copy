@@ -33,7 +33,6 @@ class GameViewController: UIViewController {
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         switch section {
         case 0:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
@@ -48,8 +47,15 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // DataSource
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return UITableView.automaticDimension
+        default: return 40
+        }
+    }
     
+    // DataSource
     func numberOfSections(in tableView: UITableView) -> Int { sections.count }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }

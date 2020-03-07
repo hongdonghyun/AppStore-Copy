@@ -9,11 +9,7 @@
 import UIKit
 
 class AppViewRoot: UIView {
-    let tableView: ListTableView = {
-        let tableView = ListTableView()
-        tableView.backgroundColor = .white
-        return tableView
-    }()
+    let tableView = ListTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

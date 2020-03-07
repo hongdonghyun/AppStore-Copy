@@ -1,21 +1,19 @@
 //
-//  ListTableView.swift
-//  Hong3Strore
+//  DetailTableView.swift
+//  Hong3Store
 //
-//  Created by Hongdonghyun on 2020/03/02.
+//  Created by Hongdonghyun on 2020/03/07.
 //  Copyright © 2020 hong3. All rights reserved.
 //
 
 import UIKit
 
-class ListTableView: UITableView {
-
+class DetailTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
         self.separatorStyle = .none
         self.allowsSelection = false
         self.backgroundColor = .white
-        
     }
     
     required init?(coder: NSCoder) {

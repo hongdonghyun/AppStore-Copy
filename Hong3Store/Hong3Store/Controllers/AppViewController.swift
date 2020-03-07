@@ -36,7 +36,6 @@ class AppViewController: UIViewController {
 
 extension AppViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         switch section {
         case 0:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
@@ -58,8 +57,8 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
         default: return 40
         }
     }
-    // DataSource
     
+    // DataSource
     func numberOfSections(in tableView: UITableView) -> Int { sections.count }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }
