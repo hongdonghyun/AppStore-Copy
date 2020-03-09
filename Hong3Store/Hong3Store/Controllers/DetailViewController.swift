@@ -74,7 +74,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 else { return UITableViewCell() }
             cell.delegate = self
             return cell
-            
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell
+                else { return UITableViewCell() }
+            return cell
         default:
             let cell = UITableViewCell()
             cell.textLabel?.text = "\(indexPath)"
@@ -92,6 +95,7 @@ extension DetailViewController {
         rootView.tableView.dataSource = self
         rootView.tableView.register(DetailTitleCell.self, forCellReuseIdentifier: DetailTitleCell.identifier)
         rootView.tableView.register(DetailNewFunctionCell.self, forCellReuseIdentifier: DetailNewFunctionCell.identifier)
+        rootView.tableView.register(DetailPreviewCell.self, forCellReuseIdentifier: DetailPreviewCell.identifier)
     }
     
     func requestData() {
