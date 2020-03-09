@@ -18,7 +18,6 @@ class DetailTitleCell: UITableViewCell {
         label.font = .systemFont(ofSize: 23, weight: .bold)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        label.text = "당근마켓 - 중고거래 필수앱"
         return label
     }()
     
@@ -26,7 +25,6 @@ class DetailTitleCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.textColor = .gray
-        label.text = "우리 동네 중고 직거래 벼룩장터"
         return label
     }()
     
@@ -50,13 +48,11 @@ class DetailTitleCell: UITableViewCell {
     private let ratingContentView = UIView()
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "4.4 별별별별별"
         return label
     }()
     
     private let ratingDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "8천개의 평가"
         return label
     }()
     
@@ -68,14 +64,12 @@ class DetailTitleCell: UITableViewCell {
     }()
     private let rankDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "쇼핑"
         return label
     }()
     
     private let ageContentView = UIView()
     private let ageLabel: UILabel = {
         let label = UILabel()
-        label.text = "4+"
         return label
     }()
     private let ageDescriptionLabel: UILabel = {

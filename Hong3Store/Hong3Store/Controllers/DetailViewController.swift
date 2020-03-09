@@ -81,18 +81,11 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewFunctionCell.identifier, for: indexPath) as? DetailNewFunctionCell
                 else { return UITableViewCell() }
-            if info.releaseNotes == nil {
-                cell.isHidden = true
-            }
-            else {
-                cell.delegate = self
-                cell.configure(
-                    version: info.version,
-                    releaseDate: info.currentVersionReleaseDate,
-                    releaseNote: info.releaseNotes ?? "")
-            }
-            
-            
+            cell.delegate = self
+            cell.configure(
+                version: info.version,
+                releaseDate: info.currentVersionReleaseDate,
+                releaseNote: info.releaseNotes ?? "")
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell
@@ -103,6 +96,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailDescriptionCell.identifier, for: indexPath) as? DetailDescriptionCell
                 else { return UITableViewCell() }
             cell.delegate = self
+            cell.configure(
+                description: info.appDescription,
+                sellerName: info.sellerName)
             return cell
         default:
             let cell = UITableViewCell()

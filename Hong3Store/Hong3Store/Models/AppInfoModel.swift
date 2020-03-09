@@ -25,6 +25,7 @@ struct InfoResult: Decodable {
     let userRatingCount: Int
     let version: String
     let currentVersionReleaseDate: Date
+    let appDescription: String
 //    let genreIDS: [String]
 //    let artistViewURL: String
 //    let supportedDevices: [String]
@@ -42,7 +43,7 @@ struct InfoResult: Decodable {
 //    let artistID: Int
 //    let artistName: String
 //    let price: Int
-//    let resultDescription, bundleID: String
+//    let bundleID: String
 
     enum CodingKeys: String, CodingKey {
         case screenshotUrls, artworkUrl100
@@ -57,6 +58,7 @@ struct InfoResult: Decodable {
         case userRatingCount
         case version
         case currentVersionReleaseDate
+        case appDescription = "description"
         //        case genreIDS = "genreIds"
 //        case artistViewURL = "artistViewUrl"
 //        case supportedDevices, kind, trackCensoredName, languageCodesISO2A, fileSizeBytes
@@ -68,7 +70,6 @@ struct InfoResult: Decodable {
 //        case artistID = "artistId"
 //        case artistName
 //        case price
-//        case resultDescription = "description"
 //        case bundleID = "bundleId"
     }
 }

@@ -12,7 +12,7 @@ class DetailPreviewCollectionCell: UICollectionViewCell {
     static let identifier = "DetailPreviewCollectionCell"
     
     private let imageView: CachedImageView = {
-        let imageView = CachedImageView(image: UIImage(named: "xxx"))
+        let imageView = CachedImageView(image: nil)
         imageView.layer.cornerRadius = 20
         return imageView
     }()

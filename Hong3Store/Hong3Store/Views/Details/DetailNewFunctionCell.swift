@@ -27,21 +27,18 @@ class DetailNewFunctionCell: UITableViewCell {
     
     private let versionLabel: UILabel = {
         let label = UILabel()
-        label.text = "버전 5.5.0"
         label.textColor = .gray
         return label
     }()
     
     private let releaseDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "3일 전"
         label.textColor = .gray
         return label
     }()
     
     private let descrptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "개선사항\n- 키워드 등록 화면의 사용성이 개선 되었어요.\n- 동네범위 설정 기능의 사용성이 개선 되었어요.\n- 중고거래 게시글 매너온도 버그가 수정 되었어요.\n- 그 외 소소한 버그 및 사용성이 개선 되었어요."
         label.numberOfLines = 3
         label.lineBreakMode = .byClipping
         return label
