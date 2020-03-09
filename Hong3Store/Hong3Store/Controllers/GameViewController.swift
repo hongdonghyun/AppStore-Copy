@@ -90,7 +90,6 @@ extension GameViewController: CollectionCellDidSelected {
     func cellTapped(itemId: String) {
         let nextVC = DetailViewController()
         nextVC.itemId = itemId
-        nextVC.requestData()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

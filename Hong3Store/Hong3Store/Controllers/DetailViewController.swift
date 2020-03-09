@@ -10,8 +10,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
     private let rootView = DetailViewRoot()
+    private var dataCount = 5
     var itemId: String?
-    var detailInfo: InfoResult?
+    var detailInfo: InfoResult? {
+        willSet {
+            if newValue?.releaseNotes != nil {
+                self.dataCount = 6
+            }
+            DispatchQueue.main.async {
+                self.rootView.tableView.reloadData()
+            }
+            print("reload")
+        }
+    }
     
     override func loadView() {
         view = rootView
@@ -20,10 +31,18 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAttr()
-//        rootView.tableView.rowHeight = UITableView.automaticDimension
-//        rootView.tableView.estimatedRowHeight = UITableView.automaticDimension
+        requestData()
+        
     }
 
+}
+
+extension DetailViewController: DetailTableCellMoreBtnSelected {
+    func cellTapped() {
+        DispatchQueue.main.async {
+            self.rootView.tableView.reloadData()
+        }
+    }
 }
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -38,7 +57,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     // DataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         // 타이틀, 새로운기능, 미리보기, 내용, 정보
-        return 5
+        return dataCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,8 +69,16 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTitleCell.identifier, for: indexPath) as? DetailTitleCell else { return UITableViewCell() }
             return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewFunctionCell.identifier, for: indexPath) as? DetailNewFunctionCell
+                else { return UITableViewCell() }
+            cell.delegate = self
+            return cell
+            
         default:
-            return UITableViewCell()
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "\(indexPath)"
+            return cell
         }
         
     }
@@ -64,6 +91,7 @@ extension DetailViewController {
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
         rootView.tableView.register(DetailTitleCell.self, forCellReuseIdentifier: DetailTitleCell.identifier)
+        rootView.tableView.register(DetailNewFunctionCell.self, forCellReuseIdentifier: DetailNewFunctionCell.identifier)
     }
     
     func requestData() {
@@ -74,6 +102,7 @@ extension DetailViewController {
             case .success(let data):
                 if let decodeData = try? JSONDecoder().decode(AppInfo.self, from: data) {
                     self.detailInfo = decodeData.results.first
+                    print(self.detailInfo?.releaseNotes)
                 }
             case .failure(let error):
                 print(error)

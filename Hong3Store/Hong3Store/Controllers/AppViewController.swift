@@ -98,7 +98,7 @@ extension AppViewController: CollectionCellDidSelected {
     func cellTapped(itemId: String) {
         let nextVC = DetailViewController()
         nextVC.itemId = itemId
-        nextVC.requestData()
+//        nextVC.requestData()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

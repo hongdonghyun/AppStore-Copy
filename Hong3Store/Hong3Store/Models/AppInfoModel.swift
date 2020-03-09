@@ -15,6 +15,7 @@ struct AppInfo: Decodable {
 struct InfoResult: Decodable {
     let screenshotUrls: [String]
     let artworkUrl100: String
+    let releaseNotes: String?
 //    let artistViewURL: String
 //    let supportedDevices: [String]
 //    let kind, trackCensoredName: String
@@ -45,6 +46,7 @@ struct InfoResult: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case screenshotUrls, artworkUrl100
+        case releaseNotes
 //        case artistViewURL = "artistViewUrl"
 //        case supportedDevices, kind, trackCensoredName, languageCodesISO2A, fileSizeBytes
 //        case sellerURL = "sellerUrl"
@@ -56,7 +58,7 @@ struct InfoResult: Decodable {
 //        case genreIDS = "genreIds"
 //        case formattedPrice, primaryGenreName, isVppDeviceBasedLicensingEnabled, releaseDate
 //        case minimumOSVersion = "minimumOsVersion"
-//        case sellerName, currentVersionReleaseDate, releaseNotes
+//        case sellerName, currentVersionReleaseDate
 //        case primaryGenreID = "primaryGenreId"
 //        case currency, version
 //        case artistID = "artistId"
