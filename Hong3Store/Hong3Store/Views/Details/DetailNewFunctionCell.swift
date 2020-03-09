@@ -47,17 +47,24 @@ class DetailNewFunctionCell: UITableViewCell {
         return label
     }()
     
-    private lazy var moreBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("더 보기", for: .normal)
-        button.setTitleColor(.link, for: .normal)
-        button.addTarget(self, action: #selector(moreBtnAction(_:)), for: .touchUpInside)
-        return button
+    private lazy var moreBtn: UILabel = {
+        let label = UILabel()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
+        label.text = "   더 보기 "
+        label.textColor = .link
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradation(moreBtn)
     }
     
     required init?(coder: NSCoder) {
@@ -67,10 +74,19 @@ class DetailNewFunctionCell: UITableViewCell {
 }
 
 extension DetailNewFunctionCell {
-    @objc private func moreBtnAction(_ sender: UIButton) {
+    func configure(version: String, releaseDate: Date, releaseNote: String) {
+        versionLabel.text = "버전 \(version)"
+        releaseDateLabel.text = "\(daysBetween(start: releaseDate, end: Date()))일 전"
+        descrptionLabel.text = releaseNote
+        
+    }
+}
+
+extension DetailNewFunctionCell {
+    @objc private func moreBtnAction(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
         descrptionLabel.numberOfLines = 0
-        sender.isHidden = true
+        moreBtn.isHidden = true
         delegate.cellTapped()
         
     }

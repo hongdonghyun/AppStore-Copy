@@ -10,6 +10,11 @@ import UIKit
 
 class DetailPreviewCell: UITableViewCell {
     static let identifier = "DetailPreviewCell"
+    private var imgUrlArray: [String]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "미리보기"
@@ -35,16 +40,23 @@ class DetailPreviewCell: UITableViewCell {
 
 extension DetailPreviewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        imgUrlArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPreviewCollectionCell.identifier, for: indexPath) as? DetailPreviewCollectionCell else { return UICollectionViewCell() }
-        
+        guard let imgUrl = imgUrlArray?[indexPath.item] else { return UICollectionViewCell() }
+        cell.configure(imgUrl: imgUrl)
         return cell
     }
     
     
+}
+
+extension DetailPreviewCell {
+    func configure(imgUrlArray iArray: [String]) {
+        imgUrlArray = iArray
+    }
 }
 
 extension DetailPreviewCell {

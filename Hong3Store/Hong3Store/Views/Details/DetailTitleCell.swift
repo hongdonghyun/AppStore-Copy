@@ -96,6 +96,18 @@ class DetailTitleCell: UITableViewCell {
 }
 
 extension DetailTitleCell {
+    func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String) {
+        thumbnailImageView.URLString = image
+        titleLabel.text = title
+        descriptionLabel.text = subTitle
+        ratingLabel.text = "\(average)"
+        ratingDescriptionLabel.text = "\(reviewCnt)"
+        rankDescriptionLabel.text = genre
+        ageLabel.text = age
+    }
+}
+
+extension DetailTitleCell {
     private func setupUI() {
         let safeArea = self.contentView
         [thumbnailImageView, topView, bottomView].forEach {

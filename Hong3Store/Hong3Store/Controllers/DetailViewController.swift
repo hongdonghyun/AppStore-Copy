@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
         requestData()
         
     }
-
+    
 }
 
 extension DetailViewController: DetailTableCellMoreBtnSelected {
@@ -65,18 +65,44 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let info = detailInfo else { return UITableViewCell() }
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTitleCell.identifier, for: indexPath) as? DetailTitleCell else { return UITableViewCell() }
+            cell.configure(
+                image: info.artworkUrl100,
+                title: info.trackName,
+                subTitle: info.sellerName,
+                average: info.averageUserRating,
+                reviewCnt: info.userRatingCount,
+                genre:info.genres.first ?? "",
+                age: info.contentAdvisoryRating)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewFunctionCell.identifier, for: indexPath) as? DetailNewFunctionCell
                 else { return UITableViewCell() }
-            cell.delegate = self
+            if info.releaseNotes == nil {
+                cell.isHidden = true
+            }
+            else {
+                cell.delegate = self
+                cell.configure(
+                    version: info.version,
+                    releaseDate: info.currentVersionReleaseDate,
+                    releaseNote: info.releaseNotes ?? "")
+            }
+            
+            
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell
                 else { return UITableViewCell() }
+            cell.configure(imgUrlArray: info.screenshotUrls)
+            return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailDescriptionCell.identifier, for: indexPath) as? DetailDescriptionCell
+                else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         default:
             let cell = UITableViewCell()
@@ -96,6 +122,7 @@ extension DetailViewController {
         rootView.tableView.register(DetailTitleCell.self, forCellReuseIdentifier: DetailTitleCell.identifier)
         rootView.tableView.register(DetailNewFunctionCell.self, forCellReuseIdentifier: DetailNewFunctionCell.identifier)
         rootView.tableView.register(DetailPreviewCell.self, forCellReuseIdentifier: DetailPreviewCell.identifier)
+        rootView.tableView.register(DetailDescriptionCell.self, forCellReuseIdentifier: DetailDescriptionCell.identifier)
     }
     
     func requestData() {
@@ -104,9 +131,11 @@ extension DetailViewController {
         RequestHelper.shared.detailRequest(method: .get) { result in
             switch result {
             case .success(let data):
-                if let decodeData = try? JSONDecoder().decode(AppInfo.self, from: data) {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                if let decodeData = try? decoder.decode(AppInfo.self, from: data) {
                     self.detailInfo = decodeData.results.first
-                    print(self.detailInfo?.releaseNotes)
+                    print(self.detailInfo)
                 }
             case .failure(let error):
                 print(error)

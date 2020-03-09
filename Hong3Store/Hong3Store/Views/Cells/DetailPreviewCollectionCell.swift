@@ -34,6 +34,12 @@ class DetailPreviewCollectionCell: UICollectionViewCell {
 }
 
 extension DetailPreviewCollectionCell {
+    func configure(imgUrl: String) {
+        imageView.URLString = imgUrl
+    }
+}
+
+extension DetailPreviewCollectionCell {
     private func setupUI() {
         [imageView].forEach {
             self.contentView.addSubview($0)
