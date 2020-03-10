@@ -117,8 +117,8 @@ extension DetailDescriptionCell {
             descriptionLabel.trailingAnchor.constraint(equalTo: descrpitionView.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: descrpitionView.bottomAnchor),
             
-            moreBtn.trailingAnchor.constraint(equalTo: descrpitionView.trailingAnchor),
             moreBtn.bottomAnchor.constraint(equalTo: descrpitionView.bottomAnchor),
+            moreBtn.trailingAnchor.constraint(equalTo: descrpitionView.trailingAnchor)
         ])
         
         [artistNameLabel, developerLabel, chevronImage].forEach {

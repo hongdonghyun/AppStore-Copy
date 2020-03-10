@@ -26,13 +26,13 @@ struct InfoResult: Decodable {
     let version: String
     let currentVersionReleaseDate: Date
     let appDescription: String
+    let sellerURL: String?
+    let fileSizeBytes: String
+    let languageCodesISO2A: [String]
 //    let genreIDS: [String]
 //    let artistViewURL: String
 //    let supportedDevices: [String]
 //    let kind, trackCensoredName: String
-//    let languageCodesISO2A: [String]
-//    let fileSizeBytes: String
-//    let sellerURL: String
 //    let trackViewURL: String
 //    let trackID: Int
 //    let formattedPrice, primaryGenreName: String
@@ -59,10 +59,11 @@ struct InfoResult: Decodable {
         case version
         case currentVersionReleaseDate
         case appDescription = "description"
+        case sellerURL = "sellerUrl"
+        case languageCodesISO2A, fileSizeBytes
+//        case supportedDevices, kind, trackCensoredName,
         //        case genreIDS = "genreIds"
 //        case artistViewURL = "artistViewUrl"
-//        case supportedDevices, kind, trackCensoredName, languageCodesISO2A, fileSizeBytes
-//        case sellerURL = "sellerUrl"
 //        case trackViewURL = "trackViewUrl"
 //        case trackID = "trackId"
 //        case formattedPrice, primaryGenreName, isVppDeviceBasedLicensingEnabled, releaseDate

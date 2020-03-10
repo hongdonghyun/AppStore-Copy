@@ -10,12 +10,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
     private let rootView = DetailViewRoot()
-    private var dataCount = 5
+    private var dataCount = 4
     var itemId: String?
     var detailInfo: InfoResult? {
         willSet {
             if newValue?.releaseNotes != nil {
-                self.dataCount = 6
+                self.dataCount = 5
             }
             DispatchQueue.main.async {
                 self.rootView.tableView.reloadData()
@@ -47,10 +47,16 @@ extension DetailViewController: DetailTableCellMoreBtnSelected {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if dataCount == 4 && indexPath.section == 1{
+            return 0
+        }
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if dataCount == 4 && indexPath.section == 1{
+            return 0
+        }
         return 150
     }
     
@@ -79,14 +85,17 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 age: info.contentAdvisoryRating)
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewFunctionCell.identifier, for: indexPath) as? DetailNewFunctionCell
-                else { return UITableViewCell() }
-            cell.delegate = self
-            cell.configure(
-                version: info.version,
-                releaseDate: info.currentVersionReleaseDate,
-                releaseNote: info.releaseNotes ?? "")
-            return cell
+            if dataCount == 4 { return UITableViewCell() } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNewFunctionCell.identifier, for: indexPath) as? DetailNewFunctionCell
+                    else { return UITableViewCell() }
+                cell.delegate = self
+                cell.configure(
+                    version: info.version,
+                    releaseDate: info.currentVersionReleaseDate,
+                    releaseNote: info.releaseNotes ?? "")
+                return cell
+            }
+            
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailPreviewCell.identifier, for: indexPath) as? DetailPreviewCell
                 else { return UITableViewCell() }
@@ -99,6 +108,19 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             cell.configure(
                 description: info.appDescription,
                 sellerName: info.sellerName)
+            return cell
+        case 4:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell
+                else { return UITableViewCell() }
+            cell.configure(
+                seller: info.sellerName,
+                appSize: info.fileSizeBytes,
+                category: info.genres,
+                OSVersion: info.minimumOSVersion,
+                language: info.languageCodesISO2A,
+                Advisory: info.contentAdvisoryRating,
+                sellerUrl: info.sellerURL ?? ""
+            )
             return cell
         default:
             let cell = UITableViewCell()
@@ -119,6 +141,7 @@ extension DetailViewController {
         rootView.tableView.register(DetailNewFunctionCell.self, forCellReuseIdentifier: DetailNewFunctionCell.identifier)
         rootView.tableView.register(DetailPreviewCell.self, forCellReuseIdentifier: DetailPreviewCell.identifier)
         rootView.tableView.register(DetailDescriptionCell.self, forCellReuseIdentifier: DetailDescriptionCell.identifier)
+        rootView.tableView.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell.identifier)
     }
     
     func requestData() {
@@ -131,7 +154,6 @@ extension DetailViewController {
                 decoder.dateDecodingStrategy = .iso8601
                 if let decodeData = try? decoder.decode(AppInfo.self, from: data) {
                     self.detailInfo = decodeData.results.first
-                    print(self.detailInfo)
                 }
             case .failure(let error):
                 print(error)

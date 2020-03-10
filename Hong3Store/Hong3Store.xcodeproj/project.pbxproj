@@ -31,6 +31,8 @@
 		7C53D4BA24114B1200031CF0 /* TopgrossTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4B924114B1200031CF0 /* TopgrossTableCell.swift */; };
 		7C53D4BC24114B2B00031CF0 /* TopgrossCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4BB24114B2B00031CF0 /* TopgrossCollectionCell.swift */; };
 		7C53D4BE24114E5E00031CF0 /* ReuseHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4BD24114E5E00031CF0 /* ReuseHeaderCell.swift */; };
+		7C9BB60424177F3C0090750A /* StrArrToStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB60324177F3C0090750A /* StrArrToStr.swift */; };
+		7C9BB60624177FE80090750A /* ByteToMB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB60524177FE80090750A /* ByteToMB.swift */; };
 		7C9DD686240CB05A0014749B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DD685240CB05A0014749B /* GameViewController.swift */; };
 		7C9DD688240CB0810014749B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DD687240CB0810014749B /* SearchViewController.swift */; };
 		7C9DD68A240CB6040014749B /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DD689240CB6040014749B /* ListTableView.swift */; };
@@ -71,6 +73,8 @@
 		7C53D4B924114B1200031CF0 /* TopgrossTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopgrossTableCell.swift; sourceTree = "<group>"; };
 		7C53D4BB24114B2B00031CF0 /* TopgrossCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopgrossCollectionCell.swift; sourceTree = "<group>"; };
 		7C53D4BD24114E5E00031CF0 /* ReuseHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseHeaderCell.swift; sourceTree = "<group>"; };
+		7C9BB60324177F3C0090750A /* StrArrToStr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrArrToStr.swift; sourceTree = "<group>"; };
+		7C9BB60524177FE80090750A /* ByteToMB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteToMB.swift; sourceTree = "<group>"; };
 		7C9DD685240CB05A0014749B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7C9DD687240CB0810014749B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7C9DD689240CB6040014749B /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
@@ -180,9 +184,11 @@
 		7C36B79624091C8100905F6F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7C9BB60324177F3C0090750A /* StrArrToStr.swift */,
 				7C36B79724091C8C00905F6F /* RequestHelper.swift */,
 				7C3D581924165BCB00BCEF03 /* ButtonGradation.swift */,
 				7C3D581B24166E2300BCEF03 /* DateOperator.swift */,
+				7C9BB60524177FE80090750A /* ByteToMB.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -336,11 +342,13 @@
 				7C3D581C24166E2300BCEF03 /* DateOperator.swift in Sources */,
 				7C36B79824091C8C00905F6F /* RequestHelper.swift in Sources */,
 				7C53D4BA24114B1200031CF0 /* TopgrossTableCell.swift in Sources */,
+				7C9BB60424177F3C0090750A /* StrArrToStr.swift in Sources */,
 				7CA6E39824138F16006DE9B0 /* DetailTableView.swift in Sources */,
 				7C53D4BC24114B2B00031CF0 /* TopgrossCollectionCell.swift in Sources */,
 				7CF656282412AA0D00E308E3 /* DetailViewController.swift in Sources */,
 				7C9DD68F240CD44C0014749B /* AppListModel.swift in Sources */,
 				7C9DD68D240CD1980014749B /* AppViewRoot.swift in Sources */,
+				7C9BB60624177FE80090750A /* ByteToMB.swift in Sources */,
 				7C3502D524092AB600016DF0 /* AppInfoModel.swift in Sources */,
 				7C53D4B12410C24700031CF0 /* PreviewTableCell.swift in Sources */,
 				7C9DD68A240CB6040014749B /* ListTableView.swift in Sources */,
@@ -489,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
 				INFOPLIST_FILE = Hong3Store/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,6 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
 				INFOPLIST_FILE = Hong3Store/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

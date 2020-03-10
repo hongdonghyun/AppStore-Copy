@@ -10,94 +10,22 @@ import UIKit
 
 class DetailInfoCell: UITableViewCell {
     static let identifier = "DetailInfoCell"
-    
-    private let providerLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "제공자"
-        label.textColor = .gray
+        label.text = "정보"
+        label.font = .systemFont(ofSize: 23)
         return label
     }()
+    let stackView = InfoStackView()
     
-    private let appSizeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "크기"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "카테고리"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let compatibilityLabel: UILabel = {
-        let label = UILabel()
-        label.text = "호환성"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let languageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "언어"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let ageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "연령등급"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let copyrightLabel: UILabel = {
-        let label = UILabel()
-        label.text = "저작권"
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let provider: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let appSize: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let category: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let compatibility: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let language: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let age: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let copyright: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupUI()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -107,7 +35,40 @@ class DetailInfoCell: UITableViewCell {
 }
 
 extension DetailInfoCell {
-    private func setupUI() {
+    func configure(seller: String, appSize: String, category: [String],
+                   OSVersion: String, language: [String], Advisory: String,
+                   sellerUrl: String) {
         
+        for (index, text) in [seller, byteToMB(appSize), strArrToStr(category), OSVersion, strArrToStr(language), Advisory].enumerated() {
+            if let _label = stackView.viewWithTag(9999 - index), let label = _label as? UILabel {
+                switch index {
+                case 3:
+                    label.text = "iOS \(text) 버전 이상"
+                default:
+                    label.text = text
+                }
+                
+            }
+        }
+    }
+}
+
+extension DetailInfoCell {
+    private func setupUI() {
+        [titleLabel, stackView].forEach {
+            self.contentView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
+            
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
+        ])
     }
 }
