@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CollectionCellDidSelected: class {
-    func cellTapped(itemId: String)
+    func cellTapped(itemId: String, title: String)
 }
 
 class AppViewController: UIViewController {
@@ -45,7 +45,8 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                 ReuseHeaderCell.identifier) as! ReuseHeaderCell
-            headerView.titleLabel.text = sections[section]
+            headerView.configure(title: sections[section], section: section)
+            headerView.delegate = self
             return headerView
         }
     }
@@ -95,10 +96,27 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension AppViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String) {
-        let nextVC = DetailViewController()
-        nextVC.itemId = itemId
-//        nextVC.requestData()
+    func cellTapped(itemId: String, title: String) {
+        let detailVC = DetailViewController()
+        detailVC.configure(id: itemId, title: title)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension AppViewController: HeaderCellShowMoreBtnSelected {
+    func showMoreBtnTapped(currentSection: Int) {
+        let nextVC = AppListTableViewController()
+        switch currentSection {
+        case 1:
+            nextVC.configure(appList: itemDict[.topgross] ?? [AppResult](), title: sections[currentSection])
+        case 2:
+            nextVC.configure(appList: itemDict[.freeAll] ?? [AppResult](), title: sections[currentSection])
+        case 3:
+            nextVC.configure(appList: itemDict[.paidAll] ?? [AppResult](), title: sections[currentSection])
+        default:
+            return
+        }
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

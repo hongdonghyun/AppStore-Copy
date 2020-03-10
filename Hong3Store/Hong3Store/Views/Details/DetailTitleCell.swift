@@ -12,7 +12,7 @@ class DetailTitleCell: UITableViewCell {
     static let identifier = "DetailTitleCell"
     
     private let topView = UIView()
-    private let thumbnailImageView = CachedImageView(image: UIImage(named: "xxx"))
+    private let thumbnailImageView = CachedImageView(image: nil)
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 23, weight: .bold)

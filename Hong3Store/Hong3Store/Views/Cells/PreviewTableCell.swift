@@ -69,7 +69,7 @@ extension PreviewTableCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = resultArray?[indexPath.row] else { return }
         if delegate != nil {
-            delegate?.cellTapped(itemId: item.id)
+            delegate?.cellTapped(itemId: item.id, title: item.name)
         }
     }
 }

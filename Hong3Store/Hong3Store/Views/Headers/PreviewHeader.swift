@@ -18,7 +18,7 @@ class PreviewHeader: UITableViewHeaderFooterView {
     }()
     
     let profileImg: CachedImageView = {
-        let imageView = CachedImageView(image: UIImage(named: "xxx"))
+        let imageView = CachedImageView(image: nil)
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         return imageView

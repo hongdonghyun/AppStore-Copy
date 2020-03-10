@@ -134,6 +134,11 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DetailViewController {
+    func configure(id: String, title: String) {
+        itemId = id
+        self.navigationItem.title = title
+    }
+    
     private func setAttr() {
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self

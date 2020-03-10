@@ -9,27 +9,46 @@
 import UIKit
 
 class AppListTableViewController: UITableViewController {
-    let appList: 
+     var appList: [AppResult]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.register(AppListTableCell.self, forCellReuseIdentifier: AppListTableCell.identifier)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        appList.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = appList[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppListTableCell.identifier, for: indexPath) as? AppListTableCell else { return UITableViewCell() }
+        cell.configure(title: item.name, subTitle: item.artistName, imageUrl: item.artworkUrl100, id: item.id)
+        return cell
+    }
+    
+}
 
+extension AppListTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = appList[indexPath.row]
+        let detailVC = DetailViewController()
+        detailVC.configure(id: item.id, title: item.name)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension AppListTableViewController {
+    func configure(appList appResults: [AppResult], title: String) {
+        appList = appResults
+        self.navigationItem.title = title
+    }
 }

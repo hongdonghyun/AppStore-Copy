@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol HeaderCellShowMoreBtnSelected: class {
+    func showMoreBtnTapped(currentSection: Int)
+}
+
 class ReuseHeaderCell: UITableViewHeaderFooterView {
     static let identifier = "ReuseHeaderCell"
+    private var currentSection = 0
+    weak var delegate: HeaderCellShowMoreBtnSelected?
     private let topLine = Seperator()
     
     let titleLabel: UILabel = {
@@ -46,9 +52,14 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
 
 
 extension ReuseHeaderCell {
+    func configure(title: String, section: Int) {
+        titleLabel.text = title
+        currentSection = section
+    }
     
     @objc private func showMoreBtnAction(sender: UIButton) {
-        print("click")
+        guard let delegate = delegate else { return }
+        delegate.showMoreBtnTapped(currentSection: currentSection)
     }
     
     private func setupUI() {

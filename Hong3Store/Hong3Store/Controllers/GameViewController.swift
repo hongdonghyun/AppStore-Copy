@@ -42,7 +42,8 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                 ReuseHeaderCell.identifier) as! ReuseHeaderCell
-            headerView.titleLabel.text = sections[section]
+            headerView.configure(title: sections[section], section: section)
+            headerView.delegate = self
             return headerView
         }
     }
@@ -85,11 +86,26 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
 extension GameViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String) {
-        let nextVC = DetailViewController()
-        nextVC.itemId = itemId
+    func cellTapped(itemId: String, title: String) {
+        let detailVC = DetailViewController()
+        detailVC.configure(id: itemId, title: title)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension GameViewController: HeaderCellShowMoreBtnSelected {
+    func showMoreBtnTapped(currentSection: Int) {
+        let nextVC = AppListTableViewController()
+        switch currentSection {
+        case 1:
+            nextVC.configure(appList: itemDict[.freeGame] ?? [AppResult](), title: sections[currentSection])
+        case 2:
+            nextVC.configure(appList: itemDict[.paidGames] ?? [AppResult](), title: sections[currentSection])
+        default:
+            return
+        }
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
