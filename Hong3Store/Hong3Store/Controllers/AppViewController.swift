@@ -25,8 +25,8 @@ class AppViewController: UIViewController {
     override func loadView() {
         view = rootView
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+//
+//        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         UINavigationBar.appearance().largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]

@@ -61,7 +61,6 @@ extension DetailTitleCell {
     func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String, appStoreURL: String?) {
         thumbnailImageView.URLString = image
         titleLabel.text = title
-        titleLabel.numberOfLines = 0
         subTitleLabel.text = subTitle
         ratingLabel.text = "\(average)"
         ratingDescriptionLabel.text = "\(reviewCnt)"
@@ -80,7 +79,9 @@ extension DetailTitleCell {
         }
         titleLabel.getTextSize(type: .bold26)
         subTitleLabel.getTextSize(type: .light20)
-    
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     private func setupUI() {
         setupAttr()
