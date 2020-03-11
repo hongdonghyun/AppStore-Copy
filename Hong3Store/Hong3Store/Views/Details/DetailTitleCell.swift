@@ -13,17 +13,15 @@ class DetailTitleCell: UITableViewCell {
     
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView()
-    let titleLabel = BlackLabel()
+    private let titleLabel = BlackLabel()
     
     private let subTitleLabel = GrayLabel()
     
-    private let downloadBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("     받기     ", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+    private let downloadBtn: DownloadButton = {
+        let button = DownloadButton()
         button.backgroundColor = .link
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
+
         return button
     }()
     
@@ -60,7 +58,7 @@ class DetailTitleCell: UITableViewCell {
 
 //MARK: - ACTIONS
 extension DetailTitleCell {
-    func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String) {
+    func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String, appStoreURL: String?) {
         thumbnailImageView.URLString = image
         titleLabel.text = title
         subTitleLabel.text = subTitle
@@ -68,6 +66,8 @@ extension DetailTitleCell {
         ratingDescriptionLabel.text = "\(reviewCnt)"
         rankDescriptionLabel.text = genre
         ageLabel.text = age
+        if let url = appStoreURL { downloadBtn.url = URL(string: url) }
+        
     }
 }
 
@@ -79,6 +79,7 @@ extension DetailTitleCell {
         }
         titleLabel.getTextSize(type: .bold26)
         subTitleLabel.getTextSize(type: .light20)
+    
     }
     private func setupUI() {
         setupAttr()
@@ -177,12 +178,10 @@ extension DetailTitleCell {
             rankLabel.topAnchor.constraint(equalTo: rankContentView.topAnchor),
             rankLabel.bottomAnchor.constraint(equalTo: rankContentView.bottomAnchor),
             rankLabel.centerXAnchor.constraint(equalTo: rankContentView.centerXAnchor),
-//            rankLabel.leadingAnchor.constraint(equalTo: rankContentView.leadingAnchor),
-//            rankLabel.trailingAnchor.constraint(equalTo: rankContentView.trailingAnchor),
             
             rankDescriptionLabel.topAnchor.constraint(equalTo: rankLabel.bottomAnchor),
             rankDescriptionLabel.centerXAnchor.constraint(equalTo: rankLabel.centerXAnchor),
-//            rankDescriptionLabel.leadingAnchor.constraint(equalTo: rankLabel.leadingAnchor),
+
         ])
 
         [ageLabel, ageDescriptionLabel].forEach {
@@ -193,7 +192,6 @@ extension DetailTitleCell {
         NSLayoutConstraint.activate([
             ageLabel.topAnchor.constraint(equalTo: ageContentView.topAnchor),
             ageLabel.bottomAnchor.constraint(equalTo: ageContentView.bottomAnchor),
-//            ageLabel.leadingAnchor.constraint(equalTo: ageContentView.leadingAnchor),
             ageLabel.trailingAnchor.constraint(equalTo: ageContentView.trailingAnchor),
             
             ageDescriptionLabel.topAnchor.constraint(equalTo: ageLabel.bottomAnchor),

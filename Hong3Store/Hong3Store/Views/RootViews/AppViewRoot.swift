@@ -9,7 +9,7 @@
 import UIKit
 
 class AppViewRoot: UIView {
-    let tableView = ListTableView()
+    let tableView = UITableView(style: .grouped, backgroundColor: .white)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

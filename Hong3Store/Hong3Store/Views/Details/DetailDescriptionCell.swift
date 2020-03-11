@@ -76,7 +76,6 @@ extension DetailDescriptionCell {
         let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
         moreBtn.isUserInteractionEnabled = true
         moreBtn.addGestureRecognizer(tap)
-        moreBtn.getTextSize(type: .light16)
         
     }
     

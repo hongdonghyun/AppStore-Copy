@@ -86,7 +86,7 @@ extension TopgrossTableCell: UICollectionViewDataSource {
         }
         if let resultArray = resultArray, !resultArray.isEmpty {
             let item = resultArray[indexPath.row]
-            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100)
+            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100, appStoreURL: item.artistURL)
         }
         return cell
     }

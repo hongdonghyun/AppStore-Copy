@@ -44,6 +44,8 @@ extension PreviewCollectionCell {
     private func setupAttr() {
         titleLabel.getTextSize(type: .bold30)
         subTitleLabel.getTextSize(type: .light20)
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.quaternaryLabel.cgColor
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     private func setupUI() {
@@ -65,12 +67,9 @@ extension PreviewCollectionCell {
             titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             
-//            titleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.15),
-            
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-//            subTitleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.1),
             
             imageView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),

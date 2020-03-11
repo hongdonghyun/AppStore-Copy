@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewRoot: UIView {
-    let tableView = DetailTableView()
+    let tableView = UITableView(style: .grouped, backgroundColor: .white)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

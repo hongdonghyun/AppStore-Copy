@@ -16,6 +16,12 @@ class AppListTableCell: UITableViewCell {
     private let titleLabel = BlackLabel()
     private let subTitleLabel = GrayLabel()
     private let seperator = Seperator()
+    private let downloadBtn: DownloadButton = {
+        let button = DownloadButton()
+        button.backgroundColor = .quaternaryLabel
+        button.setTitleColor(.link, for: .normal)
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,10 +38,13 @@ class AppListTableCell: UITableViewCell {
 }
 
 extension AppListTableCell {
-    func configure(title: String, subTitle: String, imageUrl: String, id: String) {
+    func configure(title: String, subTitle: String, imageUrl: String, id: String, appStoreURL: String?) {
         imgView.URLString = imageUrl
         titleLabel.text = title
         subTitleLabel.text = subTitle
+        if let url = appStoreURL {
+            downloadBtn.url = URL(string: url)
+        }
     }
 }
 
@@ -64,7 +73,7 @@ extension AppListTableCell {
             seperator.heightAnchor.constraint(equalToConstant: 1)
         ])
         
-        [titleLabel, subTitleLabel].forEach {
+        [titleLabel, subTitleLabel, downloadBtn].forEach {
             containerView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -73,12 +82,14 @@ extension AppListTableCell {
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-//            titleLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
             
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-//            subTitleLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5)
+            
+            downloadBtn.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
+            downloadBtn.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            
         ])
 
         

@@ -29,7 +29,7 @@ class CachedImageView: UIImageView {
     
     func downloadImageFrom(urlString: String, contentMode: UIView.ContentMode?) {
         guard let url = URL(string: urlString) else { return }
-        self.contentMode = contentMode ?? UIView.ContentMode.scaleToFill
+        self.contentMode = contentMode ?? UIView.ContentMode.scaleAspectFill
         downloadImageFrom(url: url)
     }
     
@@ -38,7 +38,8 @@ class CachedImageView: UIImageView {
             self.image = cachedImage
             
         } else {
-            URLSession.shared.dataTask(with: url) { data, response, error in
+            URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                guard let self = self else { return }
                 guard let data = data, error == nil else { return }
                 DispatchQueue.main.async {
                     let imageToCache = UIImage(data: data)

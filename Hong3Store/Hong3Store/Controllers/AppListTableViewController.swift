@@ -9,7 +9,7 @@
 import UIKit
 
 class AppListTableViewController: UITableViewController {
-     var appList: [AppResult]!
+    var appList: [AppResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +17,9 @@ class AppListTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(AppListTableCell.self, forCellReuseIdentifier: AppListTableCell.identifier)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -31,7 +31,7 @@ class AppListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = appList[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AppListTableCell.identifier, for: indexPath) as? AppListTableCell else { return UITableViewCell() }
-        cell.configure(title: item.name, subTitle: item.artistName, imageUrl: item.artworkUrl100, id: item.id)
+        cell.configure(title: item.name, subTitle: item.artistName, imageUrl: item.artworkUrl100, id: item.id, appStoreURL: item.artistURL)
         return cell
     }
     

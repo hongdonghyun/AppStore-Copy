@@ -69,7 +69,7 @@ extension DetailNewFunctionCell {
         descriptionLabel.lineBreakMode = .byClipping
         
         titleLabel.getTextSize(type: .bold26)
-        [versionLabel, releaseDateLabel, moreBtn].forEach {
+        [versionLabel, releaseDateLabel].forEach {
             $0.getTextSize(type: .light16)
         }
     }

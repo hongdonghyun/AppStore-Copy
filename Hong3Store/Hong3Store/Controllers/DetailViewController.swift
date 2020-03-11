@@ -82,7 +82,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 average: info.averageUserRating,
                 reviewCnt: info.userRatingCount,
                 genre:info.genres.first ?? "",
-                age: info.contentAdvisoryRating)
+                age: info.contentAdvisoryRating,
+                appStoreURL: info.trackViewURL
+                )
             return cell
         case 1:
             if dataCount == 4 { return UITableViewCell() } else {

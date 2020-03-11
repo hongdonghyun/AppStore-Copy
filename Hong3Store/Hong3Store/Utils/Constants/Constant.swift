@@ -12,6 +12,8 @@ struct Constants {
     static let baseUrl = "rss.itunes.apple.com"
     static let detailBaseUrl = "itunes.apple.com"
     static let detailUrl = "/api/v1/kr/ios-apps"
+    static let AppSections = ["앱", "최고매출 앱" , "무료 앱", "유료 앱"]
+    static let GameSections = ["게임", "무료 게임", "유료 게임"]
     
     enum EndPoint: String {
         case appInfo = "/lookup"
@@ -55,43 +57,7 @@ struct Constants {
     }
 }
 
-extension UILabel {
-    convenience init(text: String) {
-        self.init()
-        self.text = text
-    }
-    
-    func getTextSize(type: Constants.CustomText) {
-        switch type {
-        case .bold40:
-            self.font = UIFont.systemFont(ofSize: 40, weight: .bold)
-        case .bold30:
-            self.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        case .bold26:
-            self.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-        case .bold20:
-            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        case .medium40:
-            self.font = UIFont.systemFont(ofSize: 40, weight: .medium)
-        case .medium30:
-            self.font = UIFont.systemFont(ofSize: 30, weight: .medium)
-        case .medium20:
-            self.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        case .medium16:
-            self.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        case .light40:
-            self.font = UIFont.systemFont(ofSize: 40, weight: .light)
-        case .light30:
-            self.font = UIFont.systemFont(ofSize: 30, weight: .light)
-        case .light20:
-            self.font = UIFont.systemFont(ofSize: 20, weight: .light)
-        case .light16:
-            self.font = UIFont.systemFont(ofSize: 15, weight: .light)
-        }
-
-}
 
 
 
-}
 

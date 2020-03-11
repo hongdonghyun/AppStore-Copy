@@ -10,7 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     private let rootView = AppViewRoot()
-    private let sections = ["게임", "무료 게임", "유료 게임"]
+    private let sections = Constants.GameSections
     private var itemDict: [Constants.EndPoint: [AppResult]] = [
         Constants.EndPoint.newGames: [],
         Constants.EndPoint.freeGame: [],

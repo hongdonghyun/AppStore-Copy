@@ -14,7 +14,7 @@ protocol CollectionCellDidSelected: class {
 
 class AppViewController: UIViewController {
     private let rootView = AppViewRoot()
-    private let sections = ["앱", "최고매출 앱" , "무료 앱", "유료 앱"]
+    private let sections = Constants.AppSections
     private var itemDict: [Constants.EndPoint: [AppResult]] = [
         Constants.EndPoint.newApps: [],
         Constants.EndPoint.topgross: [],
@@ -141,7 +141,7 @@ extension AppViewController {
                     switch result {
                     case .success(let data):
                         if let decodeData = try? JSONDecoder().decode(AppStoreModel.self, from: data) {
-                            self.itemDict[itemKey] = decodeData.feed.results
+                            self.itemDict[itemKey] = Array(decodeData.feed.results.dropFirst(1))
                             DispatchQueue.main.async {
                                 self.rootView.tableView.reloadSections([index], with: .none)
                             }

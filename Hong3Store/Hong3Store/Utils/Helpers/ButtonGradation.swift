@@ -12,7 +12,7 @@ func gradation(_ sender: UILabel) {
     let gradient = CAGradientLayer()
     gradient.transform = CATransform3DMakeRotation(.pi / 2, 0, 0, 1)
     gradient.frame = sender.bounds
-    gradient.colors = [UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.init(white: 1, alpha: 0.3).cgColor]
+    gradient.colors = [UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.init(white: 1, alpha: 0.7).cgColor, UIColor.init(white: 1, alpha: 0.3).cgColor]
     
     sender.layer.insertSublayer(gradient, at: 0)
 }
