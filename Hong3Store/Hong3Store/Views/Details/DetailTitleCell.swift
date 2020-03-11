@@ -61,6 +61,7 @@ extension DetailTitleCell {
     func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String, appStoreURL: String?) {
         thumbnailImageView.URLString = image
         titleLabel.text = title
+        titleLabel.numberOfLines = 0
         subTitleLabel.text = subTitle
         ratingLabel.text = "\(average)"
         ratingDescriptionLabel.text = "\(reviewCnt)"

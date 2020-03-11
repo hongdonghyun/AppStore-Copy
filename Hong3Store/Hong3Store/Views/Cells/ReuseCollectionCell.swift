@@ -54,8 +54,7 @@ extension TopgrossCollectionCell {
         titleLabel.getTextSize(type: .medium20)
         subTitleLabel.getTextSize(type: .light20)
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        subTitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        
+        subTitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     private func setupUI() {
         setupAttr()
@@ -73,13 +72,14 @@ extension TopgrossCollectionCell {
             
             titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: downloadBtn.leadingAnchor),
             
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subTitleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
-//            subTitleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            subTitleLabel.trailingAnchor.constraint(equalTo: downloadBtn.leadingAnchor),
             
             downloadBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            downloadBtn.widthAnchor.constraint(equalToConstant: 100),
             downloadBtn.centerYAnchor.constraint(equalTo: subTitleLabel.centerYAnchor),
             
             underLine.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
