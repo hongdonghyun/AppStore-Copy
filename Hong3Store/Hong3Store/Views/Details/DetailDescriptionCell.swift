@@ -21,28 +21,11 @@ class DetailDescriptionCell: UITableViewCell {
         return label
     }()
     
-    private lazy var moreBtn: UILabel = {
-        let label = UILabel()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
-        label.text = "   더 보기 "
-        label.textColor = .link
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tap)
-        return label
-    }()
+    private lazy var moreBtn = LinkLabel(text: "   더 보기 ")
     
-    private let artistNameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .link
-        return label
-    }()
+    private let artistNameLabel = LinkLabel()
     
-    private let developerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "개발자"
-        label.textColor = .gray
-        return label
-    }()
+    private let developerLabel = GrayLabel(text: "개발자")
     
     private let chevronImage: UIImageView = {
         let imageView = UIImageView()
@@ -89,7 +72,16 @@ extension DetailDescriptionCell{
 
 
 extension DetailDescriptionCell {
+    private func setupAttr() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
+        moreBtn.isUserInteractionEnabled = true
+        moreBtn.addGestureRecognizer(tap)
+        moreBtn.getTextSize(type: .light16)
+        
+    }
+    
     private func setupUI() {
+        setupAttr()
         [descrpitionView, infoView].forEach {
             self.contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

@@ -11,11 +11,7 @@ import UIKit
 class PreviewHeader: UITableViewHeaderFooterView {
     static let identifier = "PreviewHeader"
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 50, weight: .bold)
-        return label
-    }()
+    let titleLabel = BlackLabel()
     
     let profileImg: CachedImageView = {
         let imageView = CachedImageView()
@@ -36,6 +32,10 @@ class PreviewHeader: UITableViewHeaderFooterView {
 
 
 extension PreviewHeader {
+    private func setAttr() {
+        titleLabel.getTextSize(type: .bold40)
+    }
+    
     private func setupUI() {
         [titleLabel, profileImg].forEach {
             contentView.addSubview($0)
@@ -53,5 +53,6 @@ extension PreviewHeader {
             profileImg.widthAnchor.constraint(equalToConstant: 40),
             profileImg.heightAnchor.constraint(equalToConstant: 40)
         ])
+        setAttr()
     }
 }

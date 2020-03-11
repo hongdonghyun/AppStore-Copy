@@ -18,12 +18,7 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
     weak var delegate: HeaderCellShowMoreBtnSelected?
     private let topLine = Seperator()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .bold)
-        
-        return label
-    }()
+    let titleLabel = BlackLabel()
     
     private lazy var showMoreBtn: UIButton = {
         let button = UIButton()
@@ -50,7 +45,7 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
     }
 }
 
-
+// MARK: - ACTIONS
 extension ReuseHeaderCell {
     func configure(title: String, section: Int) {
         titleLabel.text = title
@@ -61,7 +56,14 @@ extension ReuseHeaderCell {
         guard let delegate = delegate else { return }
         delegate.showMoreBtnTapped(currentSection: currentSection)
     }
-    
+}
+
+
+// MARK: - UI
+extension ReuseHeaderCell {
+    private func setupAttr() {
+        titleLabel.getTextSize(type: .bold20)
+    }
     private func setupUI() {
         let safeArea = contentView.safeAreaLayoutGuide
         [topLine, titleLabel, showMoreBtn].forEach {
@@ -81,6 +83,8 @@ extension ReuseHeaderCell {
             showMoreBtn.topAnchor.constraint(equalTo: topLine.bottomAnchor, constant: 5),
             showMoreBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
         ])
+        
+        setupAttr()
     }
 }
 

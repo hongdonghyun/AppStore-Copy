@@ -13,20 +13,9 @@ class DetailTitleCell: UITableViewCell {
     
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView()
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 23, weight: .bold)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        return label
-    }()
+    let titleLabel = BlackLabel()
     
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15)
-        label.textColor = .gray
-        return label
-    }()
+    private let subTitleLabel = GrayLabel()
     
     private let downloadBtn: UIButton = {
         let button = UIButton()
@@ -45,38 +34,18 @@ class DetailTitleCell: UITableViewCell {
     }()
     
     private let bottomView = UIView()
-    private let ratingContentView = UIView()
-    private let ratingLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
     
-    private let ratingDescriptionLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private let ratingContentView = UIView()
+    private let ratingLabel = BlackLabel()
+    private let ratingDescriptionLabel = BlackLabel()
     
     private let rankContentView = UIView()
-    private let rankLabel: UILabel = {
-        let label = UILabel()
-        label.text = "#1"
-        return label
-    }()
-    private let rankDescriptionLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private let rankLabel = BlackLabel(text: "#1")
+    private let rankDescriptionLabel = BlackLabel()
     
     private let ageContentView = UIView()
-    private let ageLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    private let ageDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "연령"
-        return label
-    }()
+    private let ageLabel = BlackLabel()
+    private let ageDescriptionLabel = BlackLabel(text: "연령")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -89,11 +58,12 @@ class DetailTitleCell: UITableViewCell {
     
 }
 
+//MARK: - ACTIONS
 extension DetailTitleCell {
     func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String) {
         thumbnailImageView.URLString = image
         titleLabel.text = title
-        descriptionLabel.text = subTitle
+        subTitleLabel.text = subTitle
         ratingLabel.text = "\(average)"
         ratingDescriptionLabel.text = "\(reviewCnt)"
         rankDescriptionLabel.text = genre
@@ -101,8 +71,17 @@ extension DetailTitleCell {
     }
 }
 
+//MARK: - UI
 extension DetailTitleCell {
+    private func setupAttr() {
+        [ratingLabel, ratingDescriptionLabel, rankLabel, rankDescriptionLabel, ageLabel, ageDescriptionLabel].forEach {
+            $0.getTextSize(type: .medium16)
+        }
+        titleLabel.getTextSize(type: .bold26)
+        subTitleLabel.getTextSize(type: .light20)
+    }
     private func setupUI() {
+        setupAttr()
         let safeArea = self.contentView
         [thumbnailImageView, topView, bottomView].forEach {
             self.contentView.addSubview($0)
@@ -126,7 +105,7 @@ extension DetailTitleCell {
             bottomView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20)
         ])
         
-        [titleLabel, descriptionLabel, downloadBtn, shareBtn].forEach {
+        [titleLabel, subTitleLabel, downloadBtn, shareBtn].forEach {
             topView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -137,11 +116,11 @@ extension DetailTitleCell {
             titleLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
             titleLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.5),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
-            descriptionLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.2),
+            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            subTitleLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
+            subTitleLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.2),
             
-            downloadBtn.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+            downloadBtn.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
             downloadBtn.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
             downloadBtn.bottomAnchor.constraint(equalTo: topView.bottomAnchor),
             downloadBtn.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.3),

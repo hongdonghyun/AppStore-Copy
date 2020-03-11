@@ -16,43 +16,13 @@ class DetailNewFunctionCell: UITableViewCell {
     static let identifier = "DetailNewFunctionCell"
     weak var delegate: DetailTableCellMoreBtnSelected?
     private let titleView = UIView()
+    private let titleLabel = BlackLabel(text: "새로운 기능")
+    private let versionLabel = GrayLabel()
+    private let releaseDateLabel = GrayLabel()
+    
     private let descriptionView = UIView()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "새로운 기능"
-        label.font = .systemFont(ofSize: 23)
-        return label
-    }()
-    
-    private let versionLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let releaseDateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .gray
-        return label
-    }()
-    
-    private let descrptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 3
-        label.lineBreakMode = .byClipping
-        return label
-    }()
-    
-    private lazy var moreBtn: UILabel = {
-        let label = UILabel()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
-        label.text = "   더 보기 "
-        label.textColor = .link
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tap)
-        return label
-    }()
+    private let descriptionLabel = BlackLabel()
+    private lazy var moreBtn = LinkLabel(text: "   더 보기 ")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,27 +40,42 @@ class DetailNewFunctionCell: UITableViewCell {
 
 }
 
+// MARK: - ACTIONS
 extension DetailNewFunctionCell {
     func configure(version: String, releaseDate: Date, releaseNote: String) {
         versionLabel.text = "버전 \(version)"
         releaseDateLabel.text = "\(daysBetween(start: releaseDate, end: Date()))일 전"
-        descrptionLabel.text = releaseNote
+        descriptionLabel.text = releaseNote
         
     }
-}
-
-extension DetailNewFunctionCell {
+    
     @objc private func moreBtnAction(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
-        descrptionLabel.numberOfLines = 0
+        descriptionLabel.numberOfLines = 0
         moreBtn.isHidden = true
         delegate.cellTapped()
         
     }
 }
 
+//MARK: - UI
 extension DetailNewFunctionCell {
+    private func setupAttr() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
+        moreBtn.isUserInteractionEnabled = true
+        moreBtn.addGestureRecognizer(tap)
+        
+        descriptionLabel.numberOfLines = 3
+        descriptionLabel.lineBreakMode = .byClipping
+        
+        titleLabel.getTextSize(type: .bold26)
+        [versionLabel, releaseDateLabel, moreBtn].forEach {
+            $0.getTextSize(type: .light16)
+        }
+    }
+    
     private func setupUI() {
+        setupAttr()
         [titleView, descriptionView].forEach {
             self.contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -125,18 +110,18 @@ extension DetailNewFunctionCell {
             releaseDateLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor),
         ])
         
-        [descrptionLabel, moreBtn].forEach {
+        [descriptionLabel, moreBtn].forEach {
             descriptionView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            descrptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor),
-            descrptionLabel.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor),
-            descrptionLabel.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor),
-            descrptionLabel.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor),
             
-            moreBtn.bottomAnchor.constraint(equalTo: descrptionLabel.bottomAnchor),
+            moreBtn.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
             moreBtn.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor)
             
         ])

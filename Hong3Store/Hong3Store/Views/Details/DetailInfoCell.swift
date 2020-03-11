@@ -10,12 +10,7 @@ import UIKit
 
 class DetailInfoCell: UITableViewCell {
     static let identifier = "DetailInfoCell"
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "정보"
-        label.font = .systemFont(ofSize: 23)
-        return label
-    }()
+    let titleLabel = BlackLabel(text: "정보")
     let stackView = InfoStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -54,7 +49,11 @@ extension DetailInfoCell {
 }
 
 extension DetailInfoCell {
+    private func setupAttr() {
+        titleLabel.getTextSize(type: .bold26)
+    }
     private func setupUI() {
+        setupAttr()
         [titleLabel, stackView].forEach {
             self.contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

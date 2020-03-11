@@ -15,12 +15,8 @@ class DetailPreviewCell: UITableViewCell {
             self.collectionView.reloadData()
         }
     }
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "미리보기"
-        label.font = .systemFont(ofSize: 23)
-        return label
-    }()
+    private let titleLabel = BlackLabel(text: "미리보기")
+    
     private let collectionView = PreviewCollectionView(frame: .zero, collectionViewLayout: SnapCenterLayout())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -77,7 +73,12 @@ extension DetailPreviewCell {
         self.collectionView.register(DetailPreviewCollectionCell.self, forCellWithReuseIdentifier: DetailPreviewCollectionCell.identifier)
     }
     
+    private func setupAttr() {
+        titleLabel.getTextSize(type: .bold26)
+    }
+    
     private func setupUI() {
+        setupAttr()
         setupCollectionView()
         
         [collectionView, titleLabel].forEach {

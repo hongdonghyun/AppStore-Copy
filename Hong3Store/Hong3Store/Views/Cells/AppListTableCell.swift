@@ -13,18 +13,8 @@ class AppListTableCell: UITableViewCell {
     
     private let imgView = CachedImageView()
     private let containerView = UIView()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .gray
-        return label
-    }()
-    
+    private let titleLabel = BlackLabel()
+    private let subTitleLabel = GrayLabel()
     private let seperator = Seperator()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

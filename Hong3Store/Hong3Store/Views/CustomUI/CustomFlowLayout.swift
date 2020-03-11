@@ -1,5 +1,5 @@
 //
-//  CollectionView.swift
+//  CustomFlowLayout.swift
 //  Hong3Strore
 //
 //  Created by Hongdonghyun on 2020/03/05.

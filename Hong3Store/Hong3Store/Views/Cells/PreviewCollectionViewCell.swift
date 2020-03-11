@@ -13,27 +13,12 @@ class PreviewCollectionCell: UICollectionViewCell {
     static let identifier = "PreviewCollectionCell"
     
     private let topLine = Seperator()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = .preferredFont(forTextStyle: .title1)
-        
-        return label
-    }()
-    
-    private let subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .gray
-        label.font = .preferredFont(forTextStyle: .title2)
-        return label
-    }()
-    
+    private let titleLabel = BlackLabel()
+    private let subTitleLabel = GrayLabel()
     private let imageView = CachedImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
     override func layoutSubviews() {
@@ -44,7 +29,7 @@ class PreviewCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+// MARK: - ACTIONS
 extension PreviewCollectionCell {
     func configure(title: String?, subTitle: String?, imageURL: String) {
         guard let title = title, let subTitle = subTitle else { return }
@@ -54,8 +39,15 @@ extension PreviewCollectionCell {
     }
 }
 
+//MARK: - UI
 extension PreviewCollectionCell {
+    private func setupAttr() {
+        titleLabel.getTextSize(type: .bold30)
+        subTitleLabel.getTextSize(type: .light20)
+        titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    }
     private func setupUI() {
+        setupAttr()
         let safeArea = self.contentView
         
         [topLine, titleLabel, subTitleLabel, imageView].forEach {
@@ -67,22 +59,24 @@ extension PreviewCollectionCell {
             topLine.topAnchor.constraint(equalTo: safeArea.topAnchor),
             topLine.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             topLine.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            topLine.heightAnchor.constraint(equalToConstant: 1),
             
-            titleLabel.topAnchor.constraint(equalTo: topLine.bottomAnchor, constant: 1),
+            titleLabel.topAnchor.constraint(equalTo: topLine.bottomAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.15),
+            
+//            titleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.15),
             
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            subTitleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.1),
+//            subTitleLabel.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.1),
             
             imageView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            imageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.745),
+            imageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.7),
             
         ])
     }
