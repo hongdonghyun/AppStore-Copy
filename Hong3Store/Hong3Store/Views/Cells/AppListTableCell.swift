@@ -11,7 +11,7 @@ import UIKit
 class AppListTableCell: UITableViewCell {
     static let identifier = "AppListTableCell"
     
-    private let imgView = CachedImageView(image: nil)
+    private let imgView = CachedImageView()
     private let containerView = UIView()
     
     private let titleLabel: UILabel = {

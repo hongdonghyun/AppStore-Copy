@@ -17,7 +17,7 @@ class CachedImageView: UIImageView {
         }
     }
     
-    override init(image: UIImage?) {
+    override init(image: UIImage? = nil) {
         super.init(image: image)
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
@@ -36,6 +36,7 @@ class CachedImageView: UIImageView {
     private func downloadImageFrom(url: URL) {
         if let cachedImage = cache.object(forKey: url.absoluteString as NSString) as? UIImage {
             self.image = cachedImage
+            
         } else {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }

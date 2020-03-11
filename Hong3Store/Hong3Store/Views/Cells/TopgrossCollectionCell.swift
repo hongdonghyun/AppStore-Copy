@@ -11,10 +11,7 @@ import UIKit
 class TopgrossCollectionCell: UICollectionViewCell {
     static let identifier = "TopgrossCollectionCell"
     
-    private let imageView: CachedImageView = {
-        let imageView = CachedImageView(image: nil)
-        return imageView
-    }()
+    private let imageView = CachedImageView()
     
     private let titleLabel: UILabel = {
         let label = UILabel()

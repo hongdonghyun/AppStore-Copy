@@ -29,10 +29,7 @@ class PreviewCollectionCell: UICollectionViewCell {
         return label
     }()
     
-    private let imageView: CachedImageView = {
-        let imageView = CachedImageView(image: nil)
-        return imageView
-    }()
+    private let imageView = CachedImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
