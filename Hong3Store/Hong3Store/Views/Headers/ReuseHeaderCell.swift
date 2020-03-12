@@ -26,6 +26,7 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
         button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
         button.setTitleColor(.link, for: .normal)
         button.addTarget(self, action: #selector(showMoreBtnAction), for: .touchUpInside)
+        button.layoutSubviews()
         return button
     }()
     
@@ -82,6 +83,7 @@ extension ReuseHeaderCell {
             
             showMoreBtn.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             showMoreBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
+            showMoreBtn.heightAnchor.constraint(equalToConstant: 10)
         ])
         
         setupAttr()

@@ -28,17 +28,19 @@ class GameViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "게임"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
     
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 0:
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                PreviewHeader.identifier) as! PreviewHeader
-            headerView.titleLabel.text = sections[section]
-            return headerView
+        case 0: return nil
         default:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                 ReuseHeaderCell.identifier) as! ReuseHeaderCell
@@ -112,13 +114,10 @@ extension GameViewController: HeaderCellShowMoreBtnSelected {
 
 extension GameViewController {
     private func setAttr() {
-        self.navigationItem.title = "게임"
-        
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
         
         rootView.tableView.register(ReuseHeaderCell.self, forHeaderFooterViewReuseIdentifier: ReuseHeaderCell.identifier)
-        rootView.tableView.register(PreviewHeader.self,forHeaderFooterViewReuseIdentifier: PreviewHeader.identifier)
         rootView.tableView.register(ReuseTableCell.self, forCellReuseIdentifier: ReuseTableCell.identifier)
         rootView.tableView.register(PreviewTableCell.self, forCellReuseIdentifier: PreviewTableCell.identifier)
     }

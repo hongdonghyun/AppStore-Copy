@@ -50,10 +50,12 @@ struct Constants {
         case medium30
         case medium20
         case medium16
+        case medium12
         case light40
         case light30
         case light20
         case light16
+        case light12
     }
 }
 

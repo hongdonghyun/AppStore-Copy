@@ -30,20 +30,22 @@ class AppViewController: UIViewController {
         super.viewDidLoad()
         setAttr()
         requestData()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "앱"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
+
 }
 
 extension AppViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 0:
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                PreviewHeader.identifier) as! PreviewHeader
-            headerView.titleLabel.text = sections[section]
-            return headerView
+        case 0: return nil
         default:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                 ReuseHeaderCell.identifier) as! ReuseHeaderCell
@@ -62,10 +64,7 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
     
     // DataSource
     func numberOfSections(in tableView: UITableView) -> Int { sections.count }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -124,12 +123,10 @@ extension AppViewController: HeaderCellShowMoreBtnSelected {
 
 extension AppViewController {
     private func setAttr() {
-        self.navigationItem.title = "앱"
         rootView.tableView.dataSource = self
         rootView.tableView.delegate = self
         
         rootView.tableView.register(ReuseHeaderCell.self, forHeaderFooterViewReuseIdentifier: ReuseHeaderCell.identifier)
-        rootView.tableView.register(PreviewHeader.self,forHeaderFooterViewReuseIdentifier: PreviewHeader.identifier)
         rootView.tableView.register(ReuseTableCell.self, forCellReuseIdentifier: ReuseTableCell.identifier)
         rootView.tableView.register(PreviewTableCell.self, forCellReuseIdentifier: PreviewTableCell.identifier)
     }

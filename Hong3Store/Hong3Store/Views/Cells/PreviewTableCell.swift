@@ -45,7 +45,7 @@ extension PreviewTableCell {
             let itemWidth: CGFloat = (contentWidth / itemCount).rounded(.down)
         
             layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
-            layout.itemSize = CGSize(width: itemWidth, height: 300)
+            layout.itemSize = CGSize(width: itemWidth, height: 230)
     }
     
     private func setupUI() {
@@ -60,7 +60,7 @@ extension PreviewTableCell {
             self.collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.collectionView.heightAnchor.constraint(equalToConstant: 310)
+            self.collectionView.heightAnchor.constraint(equalToConstant: 240)
         ])
     }
 }

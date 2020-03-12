@@ -46,6 +46,7 @@ extension DetailNewFunctionCell {
         versionLabel.text = "버전 \(version)"
         releaseDateLabel.text = "\(daysBetween(start: releaseDate, end: Date()))일 전"
         descriptionLabel.text = releaseNote
+        descriptionLabel.lineSpacing(spacing: 10)
         
     }
     
@@ -67,7 +68,7 @@ extension DetailNewFunctionCell {
         
         descriptionLabel.numberOfLines = 3
         descriptionLabel.lineBreakMode = .byClipping
-        
+        descriptionLabel.font = .systemFont(ofSize: 14)
         titleLabel.getTextSize(type: .bold26)
         [versionLabel, releaseDateLabel].forEach {
             $0.getTextSize(type: .light16)

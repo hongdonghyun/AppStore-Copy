@@ -10,7 +10,7 @@ import UIKit
 
 class DetailTitleCell: UITableViewCell {
     static let identifier = "DetailTitleCell"
-    
+    private var starArray: [UIImage]?
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView()
     
@@ -28,6 +28,7 @@ class DetailTitleCell: UITableViewCell {
     
     private let ratingContentView = UIView()
     private let ratingLabel = GrayLabel()
+    private let ratingStar = GrayLabel()
     private let ratingDescriptionLabel = GrayLabel()
     
     private let rankContentView = UIView()
@@ -56,10 +57,13 @@ extension DetailTitleCell {
         titleLabel.text = title
         subTitleLabel.text = subTitle
         ratingLabel.text = "\(average)"
+        ratingStar.text = "\(starPrint(average))"
         ratingDescriptionLabel.text = digitDivider(reviewCnt)
+        
         rankDescriptionLabel.text = genre
         ageLabel.text = age
         rankLabel.text = "#\(rank)"
+        
         if let url = appStoreURL { downloadBtn.url = URL(string: url) }
         
     }
@@ -68,17 +72,17 @@ extension DetailTitleCell {
 //MARK: - UI
 extension DetailTitleCell {
     private func setupAttr() {
-        [ratingLabel, ratingDescriptionLabel, rankLabel, rankDescriptionLabel, ageLabel, ageDescriptionLabel].forEach {
+        [ratingLabel, rankLabel, ageLabel].forEach {
             $0.getTextSize(type: .medium16)
         }
         [ratingLabel, rankLabel, ageLabel].forEach {
             $0.getTextSize(type: .bold26)
         }
         [ratingDescriptionLabel, rankDescriptionLabel, ageDescriptionLabel].forEach {
-            $0.getTextSize(type: .light16)
+            $0.getTextSize(type: .light12)
         }
         titleLabel.getTextSize(type: .bold20)
-        subTitleLabel.getTextSize(type: .light20)
+        subTitleLabel.getTextSize(type: .light16)
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -99,8 +103,8 @@ extension DetailTitleCell {
         NSLayoutConstraint.activate([
             thumbnailImageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             thumbnailImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            thumbnailImageView.widthAnchor.constraint(equalToConstant: 120),
-            thumbnailImageView.heightAnchor.constraint(equalToConstant: 120),
+            thumbnailImageView.widthAnchor.constraint(equalToConstant: 100),
+            thumbnailImageView.heightAnchor.constraint(equalToConstant: 100),
             
             topView.topAnchor.constraint(equalTo: thumbnailImageView.topAnchor),
             topView.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor),
@@ -117,24 +121,23 @@ extension DetailTitleCell {
             topView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
-            titleLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.5),
-            
+        
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subTitleLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
-            subTitleLabel.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.2),
             
             downloadBtn.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor),
             downloadBtn.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 10),
             downloadBtn.bottomAnchor.constraint(equalTo: topView.bottomAnchor),
-            downloadBtn.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.3),
+            downloadBtn.heightAnchor.constraint(equalToConstant: 32),
             
             shareBtn.centerYAnchor.constraint(equalTo: downloadBtn.centerYAnchor),
-            shareBtn.trailingAnchor.constraint(equalTo: topView.trailingAnchor)
+            shareBtn.trailingAnchor.constraint(equalTo: topView.trailingAnchor),
+            shareBtn.heightAnchor.constraint(equalToConstant: 32),
         ])
         
         [ratingContentView, rankContentView, ageContentView].forEach {
@@ -160,7 +163,7 @@ extension DetailTitleCell {
 
         ])
         
-        [ratingLabel, ratingDescriptionLabel].forEach {
+        [ratingLabel, ratingStar, ratingDescriptionLabel].forEach {
             ratingContentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -169,7 +172,10 @@ extension DetailTitleCell {
             ratingLabel.topAnchor.constraint(equalTo: ratingContentView.topAnchor),
             ratingLabel.bottomAnchor.constraint(equalTo: ratingContentView.bottomAnchor),
             ratingLabel.leadingAnchor.constraint(equalTo: ratingContentView.leadingAnchor),
-            ratingLabel.trailingAnchor.constraint(equalTo: ratingContentView.trailingAnchor),
+//            ratingLabel.trailingAnchor.constraint(equalTo: ratingContentView.trailingAnchor),
+            
+            ratingStar.leadingAnchor.constraint(equalTo: ratingLabel.trailingAnchor, constant: 5),
+            ratingStar.centerYAnchor.constraint(equalTo: ratingLabel.centerYAnchor),
             
             ratingDescriptionLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor),
             ratingDescriptionLabel.leadingAnchor.constraint(equalTo: ratingLabel.leadingAnchor),

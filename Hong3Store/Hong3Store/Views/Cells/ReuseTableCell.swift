@@ -54,13 +54,12 @@ extension ReuseTableCell {
         
         self.contentView.addSubview(self.collectionView)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.collectionView.heightAnchor.constraint(equalToConstant: 250)
+            self.collectionView.heightAnchor.constraint(equalToConstant: 230)
         ])
     }
 }

@@ -14,6 +14,17 @@ extension UILabel {
         self.text = text
     }
     
+    func lineSpacing(spacing: CGFloat) {
+        guard let text = self.text else { return }
+        let textAttribute = NSMutableAttributedString(string: text)
+        let style = NSMutableParagraphStyle()
+        
+        style.lineSpacing = spacing
+        textAttribute.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, textAttribute.length))
+        
+        self.attributedText = textAttribute
+    }
+    
     func getTextSize(type: Constants.CustomText) {
         switch type {
         case .bold40:
@@ -32,6 +43,8 @@ extension UILabel {
             self.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         case .medium16:
             self.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        case .medium12:
+            self.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         case .light40:
             self.font = UIFont.systemFont(ofSize: 40, weight: .light)
         case .light30:
@@ -40,6 +53,8 @@ extension UILabel {
             self.font = UIFont.systemFont(ofSize: 20, weight: .light)
         case .light16:
             self.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        case .light12:
+            self.font = UIFont.systemFont(ofSize: 12, weight: .light)
         }
         
     }

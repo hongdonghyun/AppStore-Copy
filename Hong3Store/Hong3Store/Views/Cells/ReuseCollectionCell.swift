@@ -47,8 +47,9 @@ extension ReuseCollectionCell {
 // MARK: - UI
 extension ReuseCollectionCell {
     private func setupAttr() {
-        titleLabel.getTextSize(type: .medium20)
-        subTitleLabel.getTextSize(type: .light20)
+        titleLabel.getTextSize(type: .medium16)
+        subTitleLabel.getTextSize(type: .light12)
+        downloadBtn.layer.cornerRadius = 16
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         subTitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
@@ -62,9 +63,9 @@ extension ReuseCollectionCell {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            imageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1),
-            imageView.widthAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1),
+//            imageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            imageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.8),
+            imageView.widthAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.8),
             
             titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
@@ -78,7 +79,7 @@ extension ReuseCollectionCell {
             downloadBtn.widthAnchor.constraint(equalToConstant: 80),
             downloadBtn.centerYAnchor.constraint(equalTo: subTitleLabel.centerYAnchor),
             
-            underLine.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 20),
+            underLine.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 26),
             underLine.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
             underLine.heightAnchor.constraint(equalToConstant: 1),
             underLine.widthAnchor.constraint(equalToConstant: self.frame.width - self.frame.height),

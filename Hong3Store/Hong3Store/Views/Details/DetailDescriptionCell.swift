@@ -87,7 +87,8 @@ extension DetailDescriptionCell {
         let infoViewTap = UITapGestureRecognizer(target: self, action: #selector(openSellerURL(_:)))
         infoView.isUserInteractionEnabled = true
         infoView.addGestureRecognizer(infoViewTap)
-        
+        descriptionLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        descriptionLabel.lineSpacing(spacing: 10)
     }
     
     private func setupUI() {

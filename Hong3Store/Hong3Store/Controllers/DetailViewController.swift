@@ -33,8 +33,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setAttr()
         requestData()
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.largeTitleDisplayMode = .never
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
     }
     
 }

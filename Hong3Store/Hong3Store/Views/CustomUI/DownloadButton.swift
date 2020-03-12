@@ -12,7 +12,7 @@ class DownloadButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setTitle("     받기     ", for: .normal)
-        self.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        self.titleLabel?.font = .boldSystemFont(ofSize: 16)
         self.backgroundColor = .quaternaryLabel
         self.setTitleColor(.systemBlue, for: .normal)
         self.layer.cornerRadius = 20
