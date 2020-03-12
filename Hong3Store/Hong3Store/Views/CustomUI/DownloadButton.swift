@@ -13,7 +13,9 @@ class DownloadButton: UIButton {
         super.init(frame: frame)
         self.setTitle("     받기     ", for: .normal)
         self.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        self.layer.cornerRadius = 15
+        self.backgroundColor = .quaternaryLabel
+        self.setTitleColor(.systemBlue, for: .normal)
+        self.layer.cornerRadius = 20
     }
     
     required init?(coder: NSCoder) {

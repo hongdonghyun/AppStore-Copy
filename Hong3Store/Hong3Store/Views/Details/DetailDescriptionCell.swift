@@ -11,6 +11,7 @@ import UIKit
 class DetailDescriptionCell: UITableViewCell {
     static let identifier = "DetailDescriptionCell"
     weak var delegate: DetailTableCellMoreBtnSelected?
+    private var sellerURL: URL?
     private let descrpitionView = UIView()
     private let infoView = UIView()
     
@@ -22,9 +23,7 @@ class DetailDescriptionCell: UITableViewCell {
     }()
     
     private lazy var moreBtn = LinkLabel(text: "   더 보기 ")
-    
     private let artistNameLabel = LinkLabel()
-    
     private let developerLabel = GrayLabel(text: "개발자")
     
     private let chevronImage: UIImageView = {
@@ -53,13 +52,21 @@ class DetailDescriptionCell: UITableViewCell {
 }
 
 extension DetailDescriptionCell {
-    func configure(description appDescription: String, sellerName: String) {
+    func configure(description appDescription: String, sellerName: String, sellerURLString: String?) {
         descriptionLabel.text = appDescription
         artistNameLabel.text = sellerName
+        if let url = sellerURLString {
+            sellerURL = URL(string: url)
+        }
     }
 }
 
 extension DetailDescriptionCell{
+    @objc private func openSellerURL(_ sender: UITapGestureRecognizer) {
+        guard let url = sellerURL else { return }
+        UIApplication.shared.open(url, options: [:])
+    }
+    
     @objc private func moreBtnAction(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
         descriptionLabel.numberOfLines = 0
@@ -73,9 +80,13 @@ extension DetailDescriptionCell{
 
 extension DetailDescriptionCell {
     private func setupAttr() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
+        let moreBtnTap = UITapGestureRecognizer(target: self, action: #selector(moreBtnAction(_:)))
         moreBtn.isUserInteractionEnabled = true
-        moreBtn.addGestureRecognizer(tap)
+        moreBtn.addGestureRecognizer(moreBtnTap)
+        
+        let infoViewTap = UITapGestureRecognizer(target: self, action: #selector(openSellerURL(_:)))
+        infoView.isUserInteractionEnabled = true
+        infoView.addGestureRecognizer(infoViewTap)
         
     }
     

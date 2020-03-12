@@ -8,19 +8,14 @@
 
 import UIKit
 
-class TopgrossCollectionCell: UICollectionViewCell {
-    static let identifier = "TopgrossCollectionCell"
+class ReuseCollectionCell: UICollectionViewCell {
+    static let identifier = "ReuseCollectionCell"
     
     private let imageView = CachedImageView()
     private let titleLabel = BlackLabel()
     private let subTitleLabel = GrayLabel()
     private let underLine = Seperator()
-    private let downloadBtn: DownloadButton = {
-        let button = DownloadButton()
-        button.backgroundColor = .quaternaryLabel
-        button.setTitleColor(.link, for: .normal)
-        return button
-    }()
+    private let downloadBtn = DownloadButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,19 +32,20 @@ class TopgrossCollectionCell: UICollectionViewCell {
 }
 
 // MARK: - ACTIONS
-extension TopgrossCollectionCell {
-    func configure(title: String?, subTitle: String?, imageURL: String, appStoreURL: String?) {
+extension ReuseCollectionCell {
+    func configure(title: String?, subTitle: String?, imageURL: String, appStoreURL: String?, underLineisHidden: Bool) {
         guard let title = title, let subTitle = subTitle else { return }
         titleLabel.text = title
         subTitleLabel.text = subTitle
         imageView.URLString = imageURL
         if let url = appStoreURL { downloadBtn.url = URL(string: url) }
+            underLine.isHidden = underLineisHidden
     }
     
 }
 
 // MARK: - UI
-extension TopgrossCollectionCell {
+extension ReuseCollectionCell {
     private func setupAttr() {
         titleLabel.getTextSize(type: .medium20)
         subTitleLabel.getTextSize(type: .light20)
@@ -71,18 +67,18 @@ extension TopgrossCollectionCell {
             imageView.widthAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1),
             
             titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: downloadBtn.leadingAnchor),
             
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            subTitleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
+            subTitleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
             subTitleLabel.trailingAnchor.constraint(equalTo: downloadBtn.leadingAnchor),
             
             downloadBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            downloadBtn.widthAnchor.constraint(equalToConstant: 100),
+            downloadBtn.widthAnchor.constraint(equalToConstant: 80),
             downloadBtn.centerYAnchor.constraint(equalTo: subTitleLabel.centerYAnchor),
             
-            underLine.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
+            underLine.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 20),
             underLine.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
             underLine.heightAnchor.constraint(equalToConstant: 1),
             underLine.widthAnchor.constraint(equalToConstant: self.frame.width - self.frame.height),

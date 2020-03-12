@@ -23,6 +23,7 @@ class DetailViewRoot: UIView {
 
 extension DetailViewRoot {
     private func setupUI() {
+        self.backgroundColor = .systemBackground
         let safeArea = self.safeAreaLayoutGuide
         
         [tableView].forEach {

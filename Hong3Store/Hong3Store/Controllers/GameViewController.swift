@@ -69,12 +69,12 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TopgrossTableCell.identifier, for: indexPath) as! TopgrossTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
             cell.resultArray = itemDict[.freeGame]
             cell.delegate = self
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TopgrossTableCell.identifier, for: indexPath) as! TopgrossTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
             cell.resultArray = itemDict[.paidGames]
             cell.delegate = self
             return cell
@@ -87,9 +87,9 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GameViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String, title: String) {
+    func cellTapped(itemId: String, title: String, rank: Int) {
         let detailVC = DetailViewController()
-        detailVC.configure(id: itemId, title: title)
+        detailVC.configure(id: itemId, title: title, rankInt: rank)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -119,12 +119,12 @@ extension GameViewController {
         
         rootView.tableView.register(ReuseHeaderCell.self, forHeaderFooterViewReuseIdentifier: ReuseHeaderCell.identifier)
         rootView.tableView.register(PreviewHeader.self,forHeaderFooterViewReuseIdentifier: PreviewHeader.identifier)
-        rootView.tableView.register(TopgrossTableCell.self, forCellReuseIdentifier: TopgrossTableCell.identifier)
+        rootView.tableView.register(ReuseTableCell.self, forCellReuseIdentifier: ReuseTableCell.identifier)
         rootView.tableView.register(PreviewTableCell.self, forCellReuseIdentifier: PreviewTableCell.identifier)
     }
     
     private func requestData() {
-        DispatchQueue.global().sync { [weak self] in
+        DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             for (index, itemKey) in [Constants.EndPoint.newGames, Constants.EndPoint.freeGame, Constants.EndPoint.paidGames].enumerated() {
                 RequestHelper.shared.request(method: .get, pagination: .hundred, endPoint: itemKey) { result in

@@ -21,6 +21,8 @@ class CachedImageView: UIImageView {
         super.init(image: image)
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.quaternaryLabel.cgColor
     }
     
     required init?(coder: NSCoder) {

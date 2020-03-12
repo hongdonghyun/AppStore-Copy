@@ -13,17 +13,10 @@ class DetailTitleCell: UITableViewCell {
     
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView()
+    
     private let titleLabel = BlackLabel()
-    
     private let subTitleLabel = GrayLabel()
-    
-    private let downloadBtn: DownloadButton = {
-        let button = DownloadButton()
-        button.backgroundColor = .link
-        button.setTitleColor(.white, for: .normal)
-
-        return button
-    }()
+    private let downloadBtn = DownloadButton()
     
     private let shareBtn: UIButton = {
         let button = UIButton()
@@ -34,16 +27,16 @@ class DetailTitleCell: UITableViewCell {
     private let bottomView = UIView()
     
     private let ratingContentView = UIView()
-    private let ratingLabel = BlackLabel()
-    private let ratingDescriptionLabel = BlackLabel()
+    private let ratingLabel = GrayLabel()
+    private let ratingDescriptionLabel = GrayLabel()
     
     private let rankContentView = UIView()
-    private let rankLabel = BlackLabel(text: "#1")
-    private let rankDescriptionLabel = BlackLabel()
+    private let rankLabel = GrayLabel(text: "#1")
+    private let rankDescriptionLabel = GrayLabel()
     
     private let ageContentView = UIView()
-    private let ageLabel = BlackLabel()
-    private let ageDescriptionLabel = BlackLabel(text: "연령")
+    private let ageLabel = GrayLabel()
+    private let ageDescriptionLabel = GrayLabel(text: "연령")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,14 +51,15 @@ class DetailTitleCell: UITableViewCell {
 
 //MARK: - ACTIONS
 extension DetailTitleCell {
-    func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String, appStoreURL: String?) {
+    func configure(image: String, title: String, subTitle: String, average: Double, reviewCnt: Int, genre: String, age: String, appStoreURL: String?, rank: Int) {
         thumbnailImageView.URLString = image
         titleLabel.text = title
         subTitleLabel.text = subTitle
         ratingLabel.text = "\(average)"
-        ratingDescriptionLabel.text = "\(reviewCnt)"
+        ratingDescriptionLabel.text = digitDivider(reviewCnt)
         rankDescriptionLabel.text = genre
         ageLabel.text = age
+        rankLabel.text = "#\(rank)"
         if let url = appStoreURL { downloadBtn.url = URL(string: url) }
         
     }
@@ -77,12 +71,23 @@ extension DetailTitleCell {
         [ratingLabel, ratingDescriptionLabel, rankLabel, rankDescriptionLabel, ageLabel, ageDescriptionLabel].forEach {
             $0.getTextSize(type: .medium16)
         }
-        titleLabel.getTextSize(type: .bold26)
+        [ratingLabel, rankLabel, ageLabel].forEach {
+            $0.getTextSize(type: .bold26)
+        }
+        [ratingDescriptionLabel, rankDescriptionLabel, ageDescriptionLabel].forEach {
+            $0.getTextSize(type: .light16)
+        }
+        titleLabel.getTextSize(type: .bold20)
         subTitleLabel.getTextSize(type: .light20)
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        downloadBtn.backgroundColor = .link
+        downloadBtn.setTitleColor(.white, for: .normal)
+        downloadBtn.layer.cornerRadius = 15
+        
     }
+    
     private func setupUI() {
         setupAttr()
         let safeArea = self.contentView
@@ -197,7 +202,7 @@ extension DetailTitleCell {
             ageLabel.trailingAnchor.constraint(equalTo: ageContentView.trailingAnchor),
             
             ageDescriptionLabel.topAnchor.constraint(equalTo: ageLabel.bottomAnchor),
-            ageDescriptionLabel.trailingAnchor.constraint(equalTo: ageLabel.trailingAnchor),
+            ageDescriptionLabel.centerXAnchor.constraint(equalTo: ageLabel.centerXAnchor)
         ])
     }
 }

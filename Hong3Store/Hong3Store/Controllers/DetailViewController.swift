@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     private let rootView = DetailViewRoot()
     private var dataCount = 4
+    private var rank: Int?
     var itemId: String?
     var detailInfo: InfoResult? {
         willSet {
@@ -32,7 +33,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setAttr()
         requestData()
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
     }
     
 }
@@ -83,7 +85,8 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 reviewCnt: info.userRatingCount,
                 genre:info.genres.first ?? "",
                 age: info.contentAdvisoryRating,
-                appStoreURL: info.trackViewURL
+                appStoreURL: info.trackViewURL,
+                rank: (rank ?? 0) + 1
                 )
             return cell
         case 1:
@@ -109,7 +112,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             cell.delegate = self
             cell.configure(
                 description: info.appDescription,
-                sellerName: info.sellerName)
+                sellerName: info.sellerName,
+                sellerURLString: info.sellerURL
+                )
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell
@@ -120,8 +125,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 category: info.genres,
                 OSVersion: info.minimumOSVersion,
                 language: info.languageCodesISO2A,
-                Advisory: info.contentAdvisoryRating,
-                sellerUrl: info.sellerURL ?? ""
+                Advisory: info.contentAdvisoryRating
             )
             return cell
         default:
@@ -136,8 +140,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DetailViewController {
-    func configure(id: String, title: String) {
+    func configure(id: String, title: String, rankInt: Int) {
         itemId = id
+        rank = rankInt
         self.navigationItem.title = title
     }
     

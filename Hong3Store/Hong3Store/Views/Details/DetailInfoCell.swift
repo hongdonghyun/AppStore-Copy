@@ -31,8 +31,7 @@ class DetailInfoCell: UITableViewCell {
 
 extension DetailInfoCell {
     func configure(seller: String, appSize: String, category: [String],
-                   OSVersion: String, language: [String], Advisory: String,
-                   sellerUrl: String) {
+                   OSVersion: String, language: [String], Advisory: String) {
         
         for (index, text) in [seller, byteToMB(appSize), strArrToStr(category), OSVersion, strArrToStr(language), Advisory].enumerated() {
             if let _label = stackView.viewWithTag(9999 - index), let label = _label as? UILabel {

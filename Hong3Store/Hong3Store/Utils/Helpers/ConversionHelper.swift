@@ -19,3 +19,13 @@ func byteToMB(_ input: String) -> String {
 func daysBetween(start: Date, end: Date) -> Int {
     return Calendar.current.dateComponents([.day], from: start, to: end).day!
 }
+
+func digitDivider(_ input: Int) -> String {
+    let strInt = "\(input)"
+    if strInt.count >= 5 {
+        return String(NSString(format: "%.1f만개의 평가", Double(input) * 0.0001))
+    } else if strInt.count == 4 {
+        return String(NSString(format: "%.1f천개의 평가", Double(input) * 0.001))
+    } else { return String("\(input)개의 평가") }
+    
+}

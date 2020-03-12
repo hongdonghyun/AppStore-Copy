@@ -41,7 +41,7 @@ extension AppListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = appList[indexPath.row]
         let detailVC = DetailViewController()
-        detailVC.configure(id: item.id, title: item.name)
+        detailVC.configure(id: item.id, title: item.name, rankInt: indexPath.row)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

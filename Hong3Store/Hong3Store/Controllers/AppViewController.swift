@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CollectionCellDidSelected: class {
-    func cellTapped(itemId: String, title: String)
+    func cellTapped(itemId: String, title: String, rank: Int)
 }
 
 class AppViewController: UIViewController {
@@ -24,18 +24,14 @@ class AppViewController: UIViewController {
 
     override func loadView() {
         view = rootView
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-//
-//        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black
-        ]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setAttr()
         requestData()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
         
     }
 }
@@ -59,8 +55,7 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 0:
-            return UITableView.automaticDimension
+        case 0: return 0
         default: return 40
         }
     }
@@ -80,17 +75,17 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TopgrossTableCell.identifier, for: indexPath) as! TopgrossTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
             cell.resultArray = itemDict[.topgross]
             cell.delegate = self
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TopgrossTableCell.identifier, for: indexPath) as! TopgrossTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
             cell.resultArray = itemDict[.freeAll]
             cell.delegate = self
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TopgrossTableCell.identifier, for: indexPath) as! TopgrossTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
             cell.resultArray = itemDict[.paidAll]
             cell.delegate = self
             return cell
@@ -102,9 +97,9 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension AppViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String, title: String) {
+    func cellTapped(itemId: String, title: String, rank: Int) {
         let detailVC = DetailViewController()
-        detailVC.configure(id: itemId, title: title)
+        detailVC.configure(id: itemId, title: title, rankInt: rank)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -135,7 +130,7 @@ extension AppViewController {
         
         rootView.tableView.register(ReuseHeaderCell.self, forHeaderFooterViewReuseIdentifier: ReuseHeaderCell.identifier)
         rootView.tableView.register(PreviewHeader.self,forHeaderFooterViewReuseIdentifier: PreviewHeader.identifier)
-        rootView.tableView.register(TopgrossTableCell.self, forCellReuseIdentifier: TopgrossTableCell.identifier)
+        rootView.tableView.register(ReuseTableCell.self, forCellReuseIdentifier: ReuseTableCell.identifier)
         rootView.tableView.register(PreviewTableCell.self, forCellReuseIdentifier: PreviewTableCell.identifier)
     }
     

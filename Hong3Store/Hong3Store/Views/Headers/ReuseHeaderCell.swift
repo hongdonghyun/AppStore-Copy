@@ -24,7 +24,7 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
         let button = UIButton()
         button.setTitle("모두 보기", for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(.link, for: .normal)
         button.addTarget(self, action: #selector(showMoreBtnAction), for: .touchUpInside)
         return button
     }()
@@ -80,7 +80,7 @@ extension ReuseHeaderCell {
             titleLabel.topAnchor.constraint(equalTo: topLine.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
             
-            showMoreBtn.topAnchor.constraint(equalTo: topLine.bottomAnchor, constant: 5),
+            showMoreBtn.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             showMoreBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
         ])
         

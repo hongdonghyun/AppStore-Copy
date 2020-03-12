@@ -44,6 +44,7 @@ extension InfoStackView {
             textLabel.tag = 9999 - i
             textLabel.textAlignment = .right
             textLabel.text = contentArray[i]
+            textLabel.lineBreakMode = .byWordWrapping
 
             let stackView = UIStackView()
             stackView.axis = .horizontal

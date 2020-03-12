@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TopgrossTableCell: UITableViewCell {
-    static let identifier = "TopgrossTableCell"
+class ReuseTableCell: UITableViewCell {
+    static let identifier = "ReuseTableCell"
     weak var delegate: CollectionCellDidSelected?
     var resultArray: [AppResult]? {
         didSet {
@@ -35,7 +35,7 @@ class TopgrossTableCell: UITableViewCell {
     }
 }
 
-extension TopgrossTableCell {
+extension ReuseTableCell {
     private func setupLayout() {
         guard let layout = self.collectionView.collectionViewLayout as? SnapCenterLayout else { return }
         let margin: CGFloat = 20
@@ -50,7 +50,7 @@ extension TopgrossTableCell {
     private func setupUI() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.collectionView.register(TopgrossCollectionCell.self, forCellWithReuseIdentifier: TopgrossCollectionCell.identifier)
+        self.collectionView.register(ReuseCollectionCell.self, forCellWithReuseIdentifier: ReuseCollectionCell.identifier)
         
         self.contentView.addSubview(self.collectionView)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,28 +65,29 @@ extension TopgrossTableCell {
     }
 }
 
-extension TopgrossTableCell: UICollectionViewDelegate {
+extension ReuseTableCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = resultArray?[indexPath.row] else { return }
         if delegate != nil {
-            delegate?.cellTapped(itemId: item.id, title: item.name)
+            
+            delegate?.cellTapped(itemId: item.id, title: item.name, rank: indexPath.item)
         }
     }
 }
 
-extension TopgrossTableCell: UICollectionViewDataSource {
+extension ReuseTableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopgrossCollectionCell.identifier, for: indexPath) as? TopgrossCollectionCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseCollectionCell.identifier, for: indexPath) as? ReuseCollectionCell else {
             return UICollectionViewCell()
         }
         if let resultArray = resultArray, !resultArray.isEmpty {
             let item = resultArray[indexPath.row]
-            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100, appStoreURL: item.artistURL)
+            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100, appStoreURL: item.artistURL, underLineisHidden: (indexPath.item + 1) % 3 == 0)
         }
         return cell
     }

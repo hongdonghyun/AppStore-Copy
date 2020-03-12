@@ -24,6 +24,7 @@ class AppViewRoot: UIView {
 
 extension AppViewRoot {
     private func setupUI() {
+        self.backgroundColor = .systemBackground
         let safeArea = self.safeAreaLayoutGuide
         
         [tableView].forEach {

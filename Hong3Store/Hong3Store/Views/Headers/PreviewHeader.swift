@@ -37,17 +37,17 @@ extension PreviewHeader {
     }
     
     private func setupUI() {
-        [titleLabel, profileImg].forEach {
+        [profileImg].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
+//            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+//            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//
             profileImg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             profileImg.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             profileImg.widthAnchor.constraint(equalToConstant: 40),
