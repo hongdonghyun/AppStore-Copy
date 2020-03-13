@@ -13,6 +13,8 @@ protocol CollectionCellDidSelected: class {
 }
 
 class AppViewController: UIViewController {
+    let requestQueue = DispatchQueue(label: "requestQueue",attributes: .concurrent)
+    let requestGroup = DispatchGroup()
     private let rootView = AppViewRoot()
     private let sections = Constants.AppSections
     private var itemDict: [Constants.EndPoint: [AppResult]] = [
@@ -21,7 +23,7 @@ class AppViewController: UIViewController {
         Constants.EndPoint.freeAll: [],
         Constants.EndPoint.paidAll: []
     ]
-
+    
     override func loadView() {
         view = rootView
     }
@@ -39,7 +41,7 @@ class AppViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
     }
-
+    
 }
 
 extension AppViewController: UITableViewDelegate, UITableViewDataSource {
@@ -132,23 +134,31 @@ extension AppViewController {
     }
     
     private func requestData() {
-        DispatchQueue.global().sync { [weak self] in
-            guard let self = self else { return }
-            for (index, itemKey) in [Constants.EndPoint.newApps, Constants.EndPoint.topgross, Constants.EndPoint.freeAll, Constants.EndPoint.paidAll].enumerated() {
-                RequestHelper.shared.request(method: .get, pagination: .hundred, endPoint: itemKey) { result in
+        rootView.tableView.isHidden = true
+        for item in [Constants.EndPoint.newApps, Constants.EndPoint.topgross, Constants.EndPoint.freeAll, Constants.EndPoint.paidAll] {
+            requestGroup.enter()
+            requestQueue.async(group: requestGroup) { [weak self] in
+                guard let self = self else { return }
+                RequestHelper.shared.request(method: .get, pagination: .hundred, endPoint: item) { result in
                     switch result {
                     case .success(let data):
                         if let decodeData = try? JSONDecoder().decode(AppStoreModel.self, from: data) {
-                            self.itemDict[itemKey] = Array(decodeData.feed.results.dropFirst(1))
-                            DispatchQueue.main.async {
-                                self.rootView.tableView.reloadSections([index], with: .none)
-                            }
+                            self.itemDict[item] = Array(decodeData.feed.results.dropFirst(1))
                         }
                     case .failure(let error):
                         print(error)
                     }
+                    self.requestGroup.leave()
                 }
+                
             }
+        }
+        requestGroup.notify(queue: requestQueue) { [weak self] in
+        guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.rootView.tableView.reloadData()
+            }
+            self.rootView.tableView.isHidden = false
         }
     }
 }

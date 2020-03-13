@@ -38,9 +38,9 @@ extension AppListTableCell {
         imgView.URLString = imageUrl
         titleLabel.text = title
         subTitleLabel.text = subTitle
-        if let url = appStoreURL {
-            downloadBtn.url = URL(string: url)
-        }
+        titleLabel.getTextSize(type: .medium16)
+        subTitleLabel.getTextSize(type: .light12)
+        if let url = appStoreURL { downloadBtn.url = URL(string: url) }
     }
 }
 

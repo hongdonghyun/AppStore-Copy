@@ -14,26 +14,15 @@ protocol HeaderCellShowMoreBtnSelected: class {
 
 class ReuseHeaderCell: UITableViewHeaderFooterView {
     static let identifier = "ReuseHeaderCell"
-    private var currentSection = 0
     weak var delegate: HeaderCellShowMoreBtnSelected?
+    
+    private var currentSection = 0
     private let topLine = Seperator()
-    
-    let titleLabel = BlackLabel()
-    
-    private lazy var showMoreBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("모두 보기", for: .normal)
-        button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-        button.setTitleColor(.link, for: .normal)
-        button.addTarget(self, action: #selector(showMoreBtnAction), for: .touchUpInside)
-        button.layoutSubviews()
-        return button
-    }()
+    private let titleLabel = BlackLabel()
+    private let showMoreBtn = LinkLabel(text: "모두 보기")
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
-        
     }
     
     override func layoutSubviews() {
@@ -53,7 +42,7 @@ extension ReuseHeaderCell {
         currentSection = section
     }
     
-    @objc private func showMoreBtnAction(sender: UIButton) {
+    @objc private func showMoreBtnAction(_ sender: UITapGestureRecognizer) {
         guard let delegate = delegate else { return }
         delegate.showMoreBtnTapped(currentSection: currentSection)
     }
@@ -64,8 +53,14 @@ extension ReuseHeaderCell {
 extension ReuseHeaderCell {
     private func setupAttr() {
         titleLabel.getTextSize(type: .bold20)
+        showMoreBtn.font = .systemFont(ofSize: 18)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showMoreBtnAction(_:)))
+        showMoreBtn.isUserInteractionEnabled = true
+        showMoreBtn.addGestureRecognizer(tap)
     }
+    
     private func setupUI() {
+        setupAttr()
         let safeArea = contentView.safeAreaLayoutGuide
         [topLine, titleLabel, showMoreBtn].forEach {
             contentView.addSubview($0)
@@ -77,16 +72,14 @@ extension ReuseHeaderCell {
             topLine.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
             topLine.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
             topLine.heightAnchor.constraint(equalToConstant: 1),
-
+            
             titleLabel.topAnchor.constraint(equalTo: topLine.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
             
             showMoreBtn.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            showMoreBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
+            showMoreBtn.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
             showMoreBtn.heightAnchor.constraint(equalToConstant: 10)
         ])
-        
-        setupAttr()
     }
 }
 

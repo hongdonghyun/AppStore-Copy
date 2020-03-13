@@ -9,6 +9,8 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    let requestQueue = DispatchQueue(label: "requestQueue",attributes: .concurrent)
+    let requestGroup = DispatchGroup()
     private let rootView = AppViewRoot()
     private let sections = Constants.GameSections
     private var itemDict: [Constants.EndPoint: [AppResult]] = [
@@ -123,23 +125,30 @@ extension GameViewController {
     }
     
     private func requestData() {
-        DispatchQueue.global().async { [weak self] in
-            guard let self = self else { return }
-            for (index, itemKey) in [Constants.EndPoint.newGames, Constants.EndPoint.freeGame, Constants.EndPoint.paidGames].enumerated() {
+        rootView.tableView.isHidden = true
+            for itemKey in [Constants.EndPoint.newGames, Constants.EndPoint.freeGame, Constants.EndPoint.paidGames] {
+                requestGroup.enter()
+                requestQueue.async(group: requestGroup) { [weak self] in
+                guard let self = self else { return }
                 RequestHelper.shared.request(method: .get, pagination: .hundred, endPoint: itemKey) { result in
                     switch result {
                     case .success(let data):
                         if let decodeData = try? JSONDecoder().decode(AppStoreModel.self, from: data) {
                             self.itemDict[itemKey] = decodeData.feed.results
-                            DispatchQueue.main.async {
-                                self.rootView.tableView.reloadSections([index], with: .none)
-                            }
                         }
                     case .failure(let error):
                         print(error)
                     }
+                    self.requestGroup.leave()
                 }
             }
+        }
+        requestGroup.notify(queue: requestQueue) { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.rootView.tableView.reloadData()
+            }
+            self.rootView.tableView.isHidden = false
         }
     }
 }
