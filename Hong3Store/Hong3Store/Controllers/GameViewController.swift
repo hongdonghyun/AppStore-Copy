@@ -147,8 +147,8 @@ extension GameViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.rootView.tableView.reloadData()
+                self.rootView.tableView.isHidden = false
             }
-            self.rootView.tableView.isHidden = false
         }
     }
 }

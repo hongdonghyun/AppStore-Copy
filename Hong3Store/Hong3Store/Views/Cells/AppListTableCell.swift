@@ -46,7 +46,13 @@ extension AppListTableCell {
 
 // MARK: - UI
 extension AppListTableCell {
+    private func setupAttr() {
+        downloadBtn.layer.cornerRadius = 16
+        imgView.layer.cornerRadius = 20
+        titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    }
     private func setupUI() {
+        setupAttr()
         [imgView, containerView, seperator].forEach {
             self.contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +92,8 @@ extension AppListTableCell {
             
             downloadBtn.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
             downloadBtn.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            downloadBtn.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            downloadBtn.heightAnchor.constraint(equalToConstant: 30),
+            downloadBtn.bottomAnchor.constraint(equalTo: imgView.bottomAnchor)
             
         ])
 

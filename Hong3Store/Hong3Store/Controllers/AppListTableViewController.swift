@@ -18,6 +18,11 @@ class AppListTableViewController: UITableViewController {
         self.tableView.register(AppListTableCell.self, forCellReuseIdentifier: AppListTableCell.identifier)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
