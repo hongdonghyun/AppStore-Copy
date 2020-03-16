@@ -5,6 +5,7 @@
 
 # 시연영상
 
+[![Video](http://img.youtube.com/vi/twZcRe6tTSc/0.jpg)](https://youtu.be/twZcRe6tTSc)
 
 # 기간
 2020.03.02 ~ 2020.03.13
