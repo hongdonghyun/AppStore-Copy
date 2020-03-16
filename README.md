@@ -7,6 +7,8 @@
 
 [![Video](http://img.youtube.com/vi/twZcRe6tTSc/0.jpg)](https://youtu.be/twZcRe6tTSc)
 
+> 클릭시 유튜브로 이동합니다.
+
 # 기간
 2020.03.02 ~ 2020.03.13
 
