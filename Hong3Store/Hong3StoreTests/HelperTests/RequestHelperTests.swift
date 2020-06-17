@@ -11,8 +11,6 @@ import XCTest
 
 class RequestHelperTests: XCTestCase {
     private var sut: RequestHelper!
-    private var dummyData: Data!
-    private var dummyDetailData: Data!
     
     override func setUpWithError() throws {
         super.setUp()
@@ -28,9 +26,8 @@ class RequestHelperTests: XCTestCase {
         let promise = expectation(description: "Get Data Success")
         sut.request(method: .get, pagination: .ten, endPoint: .newApps) { result in
             switch result {
-            case .success(let data):
+            case .success:
                 promise.fulfill()
-                self.dummyData = data
             case .failure(let error):
                 XCTFail("Fail: \(error.localizedDescription)")
             }
@@ -44,9 +41,8 @@ class RequestHelperTests: XCTestCase {
         sut.detailRequest(method: .get) {
             result in
             switch result {
-            case .success(let data):
+            case .success:
                 promise.fulfill()
-                self.dummyDetailData = data
             case .failure(let error):
                 XCTFail("Fail: \(error.localizedDescription)")
             }
