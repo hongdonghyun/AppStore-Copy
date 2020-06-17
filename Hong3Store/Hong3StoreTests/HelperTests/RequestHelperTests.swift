@@ -58,41 +58,22 @@ class RequestHelperTests: XCTestCase {
         let testBundle = Bundle(for: type(of: self))
         let path = testBundle.path(forResource: "dummyData", ofType: "json")
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)
-        
-        let url = URL(string: "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/10/explicit.json")
-        let urlResponse = HTTPURLResponse(
-            url: url!,
-            statusCode: 200,
-            httpVersion: nil,
-            headerFields: nil
-        )
-        
-        let sessionMock = URLSessionDataTaskMock()
-        sessionMock.taskResponse = (data, urlResponse, nil)
-        
-    }
-}
-
-
-final private class URLSessionDataTaskMock: URLSessionDataTask {
-    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    var url: URL?
-    var completionHandler: CompletionHandler?
-    var taskResponse: (Data?, URLResponse?, Error?)?
-    
-    override init() {
-        super.init()
+        if let _ = try? JSONDecoder().decode(AppStoreModel.self, from: data!) {
+        } else {
+            XCTFail("Fail: AppStoreModel decode fail")
+        }
     }
     
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        self.url = url
-        self.completionHandler = completionHandler
-        return self
-    }
-    
-    override func resume() {
-        DispatchQueue.main.async {
-            self.completionHandler?(self.taskResponse?.0, self.taskResponse?.1, self.taskResponse?.2)
+    func testDecodeDetailDummyData() {
+        let testBundle = Bundle(for: type(of: self))
+        let path = testBundle.path(forResource: "detailDummyData", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        if let _ = try? decoder.decode(AppInfo.self, from: data!) {
+        } else {
+            XCTFail("Fail: AppInfo decode fail")
         }
     }
 }
+

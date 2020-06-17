@@ -1,263 +1,262 @@
-
 {
-feed: {
-title: "Top Free iPhone Apps",
-id: "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/10/explicit.json",
-author: {
-name: "iTunes Store",
-uri: "http://wwww.apple.com/kr/itunes/"
-},
-links: [
-{
-self: "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/10/explicit.json"
-},
-{
-alternate: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?genreId=36&popId=27"
-}
-],
-copyright: "Copyright © 2018 Apple Inc. Todos los derechos reservados.",
-country: "kr",
-icon: "http://itunes.apple.com/favicon.ico",
-updated: "2020-06-16T02:21:40.000-07:00",
-results: [
-{
-artistName: "NEXON Company",
-id: "1466736988",
-releaseDate: "2020-05-11",
-name: "카트라이더 러쉬플러스",
-kind: "iosSoftware",
-copyright: "© NEXON Korea Corporation All Rights Reserved.",
-artistId: "523546006",
-artistUrl: "https://apps.apple.com/kr/developer/nexon-company/id523546006",
-artworkUrl100: "https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/c7/45/4a/c7454aa0-92f6-ff6b-76ce-96b87b3a8a7d/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/200x200bb.png",
-genres: [
-{
-genreId: "6014",
-name: "게임",
-url: "https://itunes.apple.com/kr/genre/id6014"
-},
-{
-genreId: "7016",
-name: "스포츠",
-url: "https://itunes.apple.com/kr/genre/id7016"
-},
-{
-genreId: "7013",
-name: "레이싱",
-url: "https://itunes.apple.com/kr/genre/id7013"
-}
-],
-url: "https://apps.apple.com/kr/app/%EC%B9%B4%ED%8A%B8%EB%9D%BC%EC%9D%B4%EB%8D%94-%EB%9F%AC%EC%89%AC%ED%94%8C%EB%9F%AC%EC%8A%A4/id1466736988"
-},
-{
-artistName: "NEXON Company",
-id: "1478371252",
-releaseDate: "2020-06-09",
-name: "FIFA Mobile",
-kind: "iosSoftware",
-copyright: "© NEXON Corp. & studiobside Corp. All Rights Reserved.",
-artistId: "523546006",
-artistUrl: "https://apps.apple.com/kr/developer/nexon-company/id523546006",
-artworkUrl100: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/a5/7d/8a/a57d8a54-744f-1678-0be3-852bca284770/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6014",
-name: "게임",
-url: "https://itunes.apple.com/kr/genre/id6014"
-},
-{
-genreId: "7016",
-name: "스포츠",
-url: "https://itunes.apple.com/kr/genre/id7016"
-}
-],
-url: "https://apps.apple.com/kr/app/fifa-mobile/id1478371252"
-},
-{
-artistName: "Danggeun Market Inc.",
-id: "1018769995",
-releaseDate: "2015-07-23",
-name: "당근마켓 - 중고거래 필수앱",
-kind: "iosSoftware",
-copyright: "Daangn Market Inc. Copyright © Daangn Market Inc. All rights",
-artistId: "1018769994",
-artistUrl: "https://apps.apple.com/kr/developer/danggeun-market-inc/id1018769994",
-artworkUrl100: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/ac/58/db/ac58dbfe-ca37-408d-f851-db1b81434b55/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6024",
-name: "쇼핑",
-url: "https://itunes.apple.com/kr/genre/id6024"
-}
-],
-url: "https://apps.apple.com/kr/app/%EB%8B%B9%EA%B7%BC%EB%A7%88%EC%BC%93-%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98-%ED%95%84%EC%88%98%EC%95%B1/id1018769995"
-},
-{
-artistName: "Zoom",
-id: "546505307",
-releaseDate: "2012-08-15",
-name: "ZOOM Cloud Meetings",
-kind: "iosSoftware",
-copyright: "© Zoom Video Communications, Inc",
-artistId: "530594111",
-artistUrl: "https://apps.apple.com/kr/developer/zoom/id530594111",
-artworkUrl100: "https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/e3/76/2f/e3762f89-c041-f00d-9e15-dba412f83a8f/AppIcon-0-1x_U007emarketing-0-0-85-220-9.png/200x200bb.png",
-genres: [
-{
-genreId: "6000",
-name: "비즈니스",
-url: "https://itunes.apple.com/kr/genre/id6000"
-},
-{
-genreId: "6007",
-name: "생산성",
-url: "https://itunes.apple.com/kr/genre/id6007"
-}
-],
-url: "https://apps.apple.com/kr/app/zoom-cloud-meetings/id546505307"
-},
-{
-artistName: "Rollic Games",
-id: "1512799121",
-releaseDate: "2020-05-15",
-name: "Tangle Master 3D",
-kind: "iosSoftware",
-copyright: "© Rollic 2019",
-artistId: "1452111779",
-artistUrl: "https://apps.apple.com/kr/developer/rollic-games/id1452111779",
-artworkUrl100: "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/cb/62/05/cb620583-f487-ae3c-d892-5efab5f14ecb/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/200x200bb.png",
-genres: [
-{
-genreId: "6014",
-name: "게임",
-url: "https://itunes.apple.com/kr/genre/id6014"
-},
-{
-genreId: "7012",
-name: "퍼즐",
-url: "https://itunes.apple.com/kr/genre/id7012"
-},
-{
-genreId: "7004",
-name: "보드",
-url: "https://itunes.apple.com/kr/genre/id7004"
-}
-],
-url: "https://apps.apple.com/kr/app/tangle-master-3d/id1512799121"
-},
-{
-artistName: "NAVER Corp.",
-id: "393499958",
-releaseDate: "2010-10-07",
-name: "네이버 - NAVER",
-kind: "iosSoftware",
-copyright: "© Copyright ⓒ NAVER Corp. All Rights Reserved.",
-artistId: "311867731",
-contentAdvisoryRating: "Explicit",
-artistUrl: "https://apps.apple.com/kr/developer/naver-corp/id311867731",
-artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/58/0f/40/580f404a-c2f8-72da-242d-437fc846269b/AppIcon-0-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/200x200bb.png",
-genres: [
-{
-genreId: "6006",
-name: "참고",
-url: "https://itunes.apple.com/kr/genre/id6006"
-}
-],
-url: "https://apps.apple.com/kr/app/%EB%84%A4%EC%9D%B4%EB%B2%84-naver/id393499958"
-},
-{
-artistName: "Kakao Corp.",
-id: "362057947",
-releaseDate: "2010-03-18",
-name: "카카오톡 KakaoTalk",
-kind: "iosSoftware",
-copyright: "© KAKAO Corp",
-artistId: "362057950",
-artistUrl: "https://apps.apple.com/kr/developer/kakao-corp/id362057950",
-artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/26/59/54/2659543e-6e6f-a2cd-14b6-fe6754ee1b45/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6005",
-name: "소셜 네트워킹",
-url: "https://itunes.apple.com/kr/genre/id6005"
-},
-{
-genreId: "6007",
-name: "생산성",
-url: "https://itunes.apple.com/kr/genre/id6007"
-}
-],
-url: "https://apps.apple.com/kr/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-kakaotalk/id362057947"
-},
-{
-artistName: "Google LLC",
-id: "544007664",
-releaseDate: "2012-09-11",
-name: "YouTube",
-kind: "iosSoftware",
-copyright: "© 2020 Google Inc.",
-artistId: "281956209",
-contentAdvisoryRating: "Explicit",
-artistUrl: "https://apps.apple.com/kr/developer/google-llc/id281956209",
-artworkUrl100: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/00/ad/00/00ad00d3-2b64-1349-a00c-320d7aafe822/logo_youtube_color-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6008",
-name: "사진 및 비디오",
-url: "https://itunes.apple.com/kr/genre/id6008"
-},
-{
-genreId: "6016",
-name: "엔터테인먼트",
-url: "https://itunes.apple.com/kr/genre/id6016"
-}
-],
-url: "https://apps.apple.com/kr/app/youtube/id544007664"
-},
-{
-artistName: "Instagram, Inc.",
-id: "389801252",
-releaseDate: "2010-10-06",
-name: "Instagram",
-kind: "iosSoftware",
-copyright: "© 2018 Instagram, LLC.",
-artistId: "389801255",
-artistUrl: "https://apps.apple.com/kr/developer/instagram-inc/id389801255",
-artworkUrl100: "https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/7a/85/bf/7a85bf9e-f9af-0d65-987d-cd9453ac71d2/Prod-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6008",
-name: "사진 및 비디오",
-url: "https://itunes.apple.com/kr/genre/id6008"
-},
-{
-genreId: "6005",
-name: "소셜 네트워킹",
-url: "https://itunes.apple.com/kr/genre/id6005"
-}
-],
-url: "https://apps.apple.com/kr/app/instagram/id389801252"
-},
-{
-artistName: "Cupist Inc.",
-id: "1058232900",
-releaseDate: "2016-03-01",
-name: "글램 - 모든 매력적인 만남",
-kind: "iosSoftware",
-copyright: "© 2015 Cupist Inc.",
-artistId: "1058232899",
-contentAdvisoryRating: "Explicit",
-artistUrl: "https://apps.apple.com/kr/developer/cupist-inc/id1058232899",
-artworkUrl100: "https://is4-ssl.mzstatic.com/image/thumb/Purple123/v4/ec/f7/81/ecf781c5-f05b-85a2-8c2a-9329512472ee/AppIcon-0-0-1x_U007emarketing-0-0-0-4-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
-genres: [
-{
-genreId: "6005",
-name: "소셜 네트워킹",
-url: "https://itunes.apple.com/kr/genre/id6005"
-}
-],
-url: "https://apps.apple.com/kr/app/%EA%B8%80%EB%9E%A8-%EB%AA%A8%EB%93%A0-%EB%A7%A4%EB%A0%A5%EC%A0%81%EC%9D%B8-%EB%A7%8C%EB%82%A8/id1058232900"
-}
-]
-}
+  "feed": {
+    "title": "Top Free iPhone Apps",
+    "id": "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/10/explicit.json",
+    "author": {
+      "name": "iTunes Store",
+      "uri": "http://wwww.apple.com/kr/itunes/"
+    },
+    "links": [
+      {
+        "self": "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-free/all/10/explicit.json"
+      },
+      {
+        "alternate": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?genreId=36&popId=27"
+      }
+    ],
+    "copyright": "Copyright © 2018 Apple Inc. Todos los derechos reservados.",
+    "country": "kr",
+    "icon": "http://itunes.apple.com/favicon.ico",
+    "updated": "2020-06-16T02:21:40.000-07:00",
+    "results": [
+      {
+        "artistName": "NEXON Company",
+        "id": "1466736988",
+        "releaseDate": "2020-05-11",
+        "name": "카트라이더 러쉬플러스",
+        "kind": "iosSoftware",
+        "copyright": "© NEXON Korea Corporation All Rights Reserved.",
+        "artistId": "523546006",
+        "artistUrl": "https://apps.apple.com/kr/developer/nexon-company/id523546006",
+        "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/c7/45/4a/c7454aa0-92f6-ff6b-76ce-96b87b3a8a7d/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6014",
+            "name": "게임",
+            "url": "https://itunes.apple.com/kr/genre/id6014"
+          },
+          {
+            "genreId": "7016",
+            "name": "스포츠",
+            "url": "https://itunes.apple.com/kr/genre/id7016"
+          },
+          {
+            "genreId": "7013",
+            "name": "레이싱",
+            "url": "https://itunes.apple.com/kr/genre/id7013"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/%EC%B9%B4%ED%8A%B8%EB%9D%BC%EC%9D%B4%EB%8D%94-%EB%9F%AC%EC%89%AC%ED%94%8C%EB%9F%AC%EC%8A%A4/id1466736988"
+      },
+      {
+        "artistName": "NEXON Company",
+        "id": "1478371252",
+        "releaseDate": "2020-06-09",
+        "name": "FIFA Mobile",
+        "kind": "iosSoftware",
+        "copyright": "© NEXON Corp. & studiobside Corp. All Rights Reserved.",
+        "artistId": "523546006",
+        "artistUrl": "https://apps.apple.com/kr/developer/nexon-company/id523546006",
+        "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/a5/7d/8a/a57d8a54-744f-1678-0be3-852bca284770/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6014",
+            "name": "게임",
+            "url": "https://itunes.apple.com/kr/genre/id6014"
+          },
+          {
+            "genreId": "7016",
+            "name": "스포츠",
+            "url": "https://itunes.apple.com/kr/genre/id7016"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/fifa-mobile/id1478371252"
+      },
+      {
+        "artistName": "Danggeun Market Inc.",
+        "id": "1018769995",
+        "releaseDate": "2015-07-23",
+        "name": "당근마켓 - 중고거래 필수앱",
+        "kind": "iosSoftware",
+        "copyright": "Daangn Market Inc. Copyright © Daangn Market Inc. All rights",
+        "artistId": "1018769994",
+        "artistUrl": "https://apps.apple.com/kr/developer/danggeun-market-inc/id1018769994",
+        "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/ac/58/db/ac58dbfe-ca37-408d-f851-db1b81434b55/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6024",
+            "name": "쇼핑",
+            "url": "https://itunes.apple.com/kr/genre/id6024"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/%EB%8B%B9%EA%B7%BC%EB%A7%88%EC%BC%93-%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98-%ED%95%84%EC%88%98%EC%95%B1/id1018769995"
+      },
+      {
+        "artistName": "Zoom",
+        "id": "546505307",
+        "releaseDate": "2012-08-15",
+        "name": "ZOOM Cloud Meetings",
+        "kind": "iosSoftware",
+        "copyright": "© Zoom Video Communications, Inc",
+        "artistId": "530594111",
+        "artistUrl": "https://apps.apple.com/kr/developer/zoom/id530594111",
+        "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/e3/76/2f/e3762f89-c041-f00d-9e15-dba412f83a8f/AppIcon-0-1x_U007emarketing-0-0-85-220-9.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6000",
+            "name": "비즈니스",
+            "url": "https://itunes.apple.com/kr/genre/id6000"
+          },
+          {
+            "genreId": "6007",
+            "name": "생산성",
+            "url": "https://itunes.apple.com/kr/genre/id6007"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/zoom-cloud-meetings/id546505307"
+      },
+      {
+        "artistName": "Rollic Games",
+        "id": "1512799121",
+        "releaseDate": "2020-05-15",
+        "name": "Tangle Master 3D",
+        "kind": "iosSoftware",
+        "copyright": "© Rollic 2019",
+        "artistId": "1452111779",
+        "artistUrl": "https://apps.apple.com/kr/developer/rollic-games/id1452111779",
+        "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/cb/62/05/cb620583-f487-ae3c-d892-5efab5f14ecb/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6014",
+            "name": "게임",
+            "url": "https://itunes.apple.com/kr/genre/id6014"
+          },
+          {
+            "genreId": "7012",
+            "name": "퍼즐",
+            "url": "https://itunes.apple.com/kr/genre/id7012"
+          },
+          {
+            "genreId": "7004",
+            "name": "보드",
+            "url": "https://itunes.apple.com/kr/genre/id7004"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/tangle-master-3d/id1512799121"
+      },
+      {
+        "artistName": "NAVER Corp.",
+        "id": "393499958",
+        "releaseDate": "2010-10-07",
+        "name": "네이버 - NAVER",
+        "kind": "iosSoftware",
+        "copyright": "© Copyright ⓒ NAVER Corp. All Rights Reserved.",
+        "artistId": "311867731",
+        "contentAdvisoryRating": "Explicit",
+        "artistUrl": "https://apps.apple.com/kr/developer/naver-corp/id311867731",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/58/0f/40/580f404a-c2f8-72da-242d-437fc846269b/AppIcon-0-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6006",
+            "name": "참고",
+            "url": "https://itunes.apple.com/kr/genre/id6006"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/%EB%84%A4%EC%9D%B4%EB%B2%84-naver/id393499958"
+      },
+      {
+        "artistName": "Kakao Corp.",
+        "id": "362057947",
+        "releaseDate": "2010-03-18",
+        "name": "카카오톡 KakaoTalk",
+        "kind": "iosSoftware",
+        "copyright": "© KAKAO Corp",
+        "artistId": "362057950",
+        "artistUrl": "https://apps.apple.com/kr/developer/kakao-corp/id362057950",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/26/59/54/2659543e-6e6f-a2cd-14b6-fe6754ee1b45/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6005",
+            "name": "소셜 네트워킹",
+            "url": "https://itunes.apple.com/kr/genre/id6005"
+          },
+          {
+            "genreId": "6007",
+            "name": "생산성",
+            "url": "https://itunes.apple.com/kr/genre/id6007"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-kakaotalk/id362057947"
+      },
+      {
+        "artistName": "Google LLC",
+        "id": "544007664",
+        "releaseDate": "2012-09-11",
+        "name": "YouTube",
+        "kind": "iosSoftware",
+        "copyright": "© 2020 Google Inc.",
+        "artistId": "281956209",
+        "contentAdvisoryRating": "Explicit",
+        "artistUrl": "https://apps.apple.com/kr/developer/google-llc/id281956209",
+        "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/00/ad/00/00ad00d3-2b64-1349-a00c-320d7aafe822/logo_youtube_color-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6008",
+            "name": "사진 및 비디오",
+            "url": "https://itunes.apple.com/kr/genre/id6008"
+          },
+          {
+            "genreId": "6016",
+            "name": "엔터테인먼트",
+            "url": "https://itunes.apple.com/kr/genre/id6016"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/youtube/id544007664"
+      },
+      {
+        "artistName": "Instagram, Inc.",
+        "id": "389801252",
+        "releaseDate": "2010-10-06",
+        "name": "Instagram",
+        "kind": "iosSoftware",
+        "copyright": "© 2018 Instagram, LLC.",
+        "artistId": "389801255",
+        "artistUrl": "https://apps.apple.com/kr/developer/instagram-inc/id389801255",
+        "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/7a/85/bf/7a85bf9e-f9af-0d65-987d-cd9453ac71d2/Prod-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6008",
+            "name": "사진 및 비디오",
+            "url": "https://itunes.apple.com/kr/genre/id6008"
+          },
+          {
+            "genreId": "6005",
+            "name": "소셜 네트워킹",
+            "url": "https://itunes.apple.com/kr/genre/id6005"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/instagram/id389801252"
+      },
+      {
+        "artistName": "Cupist Inc.",
+        "id": "1058232900",
+        "releaseDate": "2016-03-01",
+        "name": "글램 - 모든 매력적인 만남",
+        "kind": "iosSoftware",
+        "copyright": "© 2015 Cupist Inc.",
+        "artistId": "1058232899",
+        "contentAdvisoryRating": "Explicit",
+        "artistUrl": "https://apps.apple.com/kr/developer/cupist-inc/id1058232899",
+        "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Purple123/v4/ec/f7/81/ecf781c5-f05b-85a2-8c2a-9329512472ee/AppIcon-0-0-1x_U007emarketing-0-0-0-4-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/200x200bb.png",
+        "genres": [
+          {
+            "genreId": "6005",
+            "name": "소셜 네트워킹",
+            "url": "https://itunes.apple.com/kr/genre/id6005"
+          }
+        ],
+        "url": "https://apps.apple.com/kr/app/%EA%B8%80%EB%9E%A8-%EB%AA%A8%EB%93%A0-%EB%A7%A4%EB%A0%A5%EC%A0%81%EC%9D%B8-%EB%A7%8C%EB%82%A8/id1058232900"
+      }
+    ]
+  }
 }
