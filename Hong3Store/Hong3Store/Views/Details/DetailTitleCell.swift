@@ -56,7 +56,7 @@ extension DetailTitleCell {
         thumbnailImageView.URLString = image
         titleLabel.text = title
         subTitleLabel.text = subTitle
-        ratingLabel.text = "\(average)"
+        ratingLabel.text = String(format: "%.1f", average)
         ratingStar.text = "\(starPrint(average))"
         ratingDescriptionLabel.text = digitDivider(reviewCnt)
         

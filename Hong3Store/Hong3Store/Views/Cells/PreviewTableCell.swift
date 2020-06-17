@@ -48,6 +48,7 @@ extension PreviewTableCell {
             layout.itemSize = CGSize(width: itemWidth, height: 230)
     }
     
+  
     private func setupUI() {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
