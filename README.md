@@ -1,7 +1,7 @@
 # Hong3Store
 > 패스트캠퍼스 iOS School 진행 했던 해커톤 프로젝트
 
-> 현재 테스트 코드를 적용중
+> 현재 테스트 코드를 작성해보고 있습니다.
 
 ## 설명
 - 기간: 2020.03.02 ~ 2020.03.13
@@ -14,11 +14,13 @@
   - NSCache를 사용하여 Cell호출시 이미지를 매번 호출하던 문제 해결
   - Dispatch Group을 사용하여 UI 순서가 꼬이던 문제를 해결
   - TableView와 CollectionView를 같이 사용해보며, 많은 앱들이 비슷한 형태를 띄고 있다는것을 파악
-  - 두개의 API를 사용하여 API 사용에 익숙해지게 된 계기
+  - 두개의 API를 사용하며 API 사용에 익숙해지게 된 계기
   - 테스트 코드를 적용하여 테스트 코드 작성을 연습중
-
+  - 해당 앱을 만들어보며 자신감을 많이 얻게 되었음
 
 ## 결과
+
+![images](./assets/images.jpeg)
 
 [![Video](http://img.youtube.com/vi/twZcRe6tTSc/0.jpg)](https://youtu.be/twZcRe6tTSc)
 
