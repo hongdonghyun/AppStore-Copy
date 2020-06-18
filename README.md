@@ -1,22 +1,24 @@
-# AppStore Copy
+# Hong3Store
+> 패스트캠퍼스 iOS School 진행 했던 해커톤 프로젝트
+> 현재 테스트 코드를 적용중
 
-# 스크린샷
-추후첨부
+## 설명
+- 기간: 2020.03.02 ~ 2020.03.13
+- 사용 기술:
+  - 언어: Swift
+  - 프레임워크: UIKit
+- 인원: 1명
+- 성과:
+  - 해커톤 자체 평가 2위
+  - NSCache를 사용하여 Cell호출시 이미지를 매번 호출하던 문제 해결
+  - Dispatch Group을 사용하여 UI 순서가 꼬이던 문제를 해결
+  - TableView와 CollectionView를 같이 사용해보며, 많은 앱들이 비슷한 형태를 띄고 있다는것을 파악
+  - 두개의 API를 사용하여 API 사용에 익숙해지게 된 계기
+  - 테스트 코드를 적용하여 테스트 코드 작성을 연습중
 
-# 시연영상
+
+## 결과
 
 [![Video](http://img.youtube.com/vi/twZcRe6tTSc/0.jpg)](https://youtu.be/twZcRe6tTSc)
 
 > 클릭시 유튜브로 이동합니다.
-
-# 기간
-2020.03.02 ~ 2020.03.13
-
-# 설명
-[itunes RSS](https://rss.itunes.apple.com/ko-kr)데이터를 사용하여 만든 앱스토어 카피앱
-
-게임탭, 앱탭 두개를 작성 (검색 미구현)
-
-iOS 13기준으로 작성
-
-라이브러리 사용: X

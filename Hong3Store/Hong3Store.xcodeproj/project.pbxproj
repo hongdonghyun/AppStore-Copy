@@ -41,6 +41,7 @@
 		7C9DD68F240CD44C0014749B /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DD68E240CD44C0014749B /* AppStoreModel.swift */; };
 		7CA6E39B241392DC006DE9B0 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6E39A241392DC006DE9B0 /* DetailTitleCell.swift */; };
 		7CA6E39D2413E781006DE9B0 /* DetailPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6E39C2413E781006DE9B0 /* DetailPreviewCell.swift */; };
+		7CB2C62D249B1BFB00FF5C59 /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2C62C249B1BFB00FF5C59 /* FunctionTests.swift */; };
 		7CC4C2B42418D49700E2B014 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC4C2B32418D49700E2B014 /* UILabelExtension.swift */; };
 		7CC4C2B62418D50500E2B014 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC4C2B52418D50500E2B014 /* UITableViewExtension.swift */; };
 		7CC4C2B82419073B00E2B014 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC4C2B72419073B00E2B014 /* DownloadButton.swift */; };
@@ -101,6 +102,7 @@
 		7C9DD68E240CD44C0014749B /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
 		7CA6E39A241392DC006DE9B0 /* DetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleCell.swift; sourceTree = "<group>"; };
 		7CA6E39C2413E781006DE9B0 /* DetailPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPreviewCell.swift; sourceTree = "<group>"; };
+		7CB2C62C249B1BFB00FF5C59 /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
 		7CC4C2B32418D49700E2B014 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		7CC4C2B52418D50500E2B014 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CC4C2B72419073B00E2B014 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				7CE78D3B249A105A00CC0734 /* dummyData.json */,
 				7C8331BD2499C61000C57BE6 /* RequestTests.swift */,
 				7CE78D392499F49300CC0734 /* RequestHelperTests.swift */,
+				7CB2C62C249B1BFB00FF5C59 /* FunctionTests.swift */,
 			);
 			path = HelperTests;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8331BE2499C61000C57BE6 /* RequestTests.swift in Sources */,
+				7CB2C62D249B1BFB00FF5C59 /* FunctionTests.swift in Sources */,
 				7CE78D3A2499F49300CC0734 /* RequestHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
