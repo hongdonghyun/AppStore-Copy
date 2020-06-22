@@ -59,7 +59,6 @@ extension DetailTitleCell {
         ratingLabel.text = String(format: "%.1f", average)
         ratingStar.text = "\(starPrint(average))"
         ratingDescriptionLabel.text = digitDivider(reviewCnt)
-        
         rankDescriptionLabel.text = genre
         ageLabel.text = age
         rankLabel.text = "#\(rank)"
