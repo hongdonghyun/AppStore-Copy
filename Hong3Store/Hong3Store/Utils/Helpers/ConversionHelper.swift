@@ -27,5 +27,20 @@ func digitDivider(_ input: Int) -> String {
     } else if strInt.count == 4 {
         return String(NSString(format: "%.1f천개의 평가", Double(input) * 0.001))
     } else { return String("\(input)개의 평가") }
-    
+}
+
+func starPrint(_ input: Double) -> String {
+    let emptyStar = "☆"
+    let fillStar = "★"
+    var resultStr = ""
+    var tempInput = input
+    for _ in 0..<5 {
+        if tempInput >= 1 {
+            resultStr += fillStar
+        } else if tempInput >= 0.5 {
+            resultStr += emptyStar
+        }
+        tempInput -= 1
+    }
+    return resultStr
 }

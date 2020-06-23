@@ -63,4 +63,16 @@ class ConversionHelperTests: XCTestCase {
         XCTAssertNotEqual(digitDivider(10000), "1만개의 평가")
         XCTAssertNotEqual(digitDivider(100000), "10만개의 평가")
     }
+    
+    func test_success_starPrint() {
+        XCTAssertEqual(starPrint(4), "★★★★")
+        XCTAssertEqual(starPrint(3), "★★★")
+        XCTAssertEqual(starPrint(10), "★★★★★")
+        
+        XCTAssertEqual(starPrint(0.5), "☆")
+        XCTAssertEqual(starPrint(2.5), "★★☆")
+        XCTAssertEqual(starPrint(2.1847), "★★")
+        XCTAssertEqual(starPrint(2.49999), "★★")
+        XCTAssertEqual(starPrint(4.9999), "★★★★☆")
+    }
 }
