@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Hong3Store.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7C4BAE1A24A1F93900DC6A70"
+               BuildableName = "Hong3StoreUITests.xctest"
+               BlueprintName = "Hong3StoreUITests"
+               ReferencedContainer = "container:Hong3Store.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

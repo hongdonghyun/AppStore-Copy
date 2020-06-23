@@ -24,6 +24,7 @@
 		7C42E12A241897D0002190ED /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42E129241897D0002190ED /* CustomLabel.swift */; };
 		7C4983EF240CE956004F2F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C4983EE240CE956004F2F57 /* LaunchScreen.storyboard */; };
 		7C49841C24100B47004F2F57 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C49841B24100B47004F2F57 /* CustomFlowLayout.swift */; };
+		7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */; };
 		7C53D4AB2410AC3F00031CF0 /* Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4AA2410AC3F00031CF0 /* Seperator.swift */; };
 		7C53D4AF2410AF9C00031CF0 /* PreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4AE2410AF9C00031CF0 /* PreviewCollectionView.swift */; };
 		7C53D4B12410C24700031CF0 /* PreviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4B02410C24700031CF0 /* PreviewTableCell.swift */; };
@@ -53,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7C4BAE2024A1F93900DC6A70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C36B770240906C700905F6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C36B777240906C700905F6F;
+			remoteInfo = Hong3Store;
+		};
 		7C8331C02499C61000C57BE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7C36B770240906C700905F6F /* Project object */;
@@ -82,6 +90,9 @@
 		7C42E129241897D0002190ED /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		7C4983EE240CE956004F2F57 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C49841B24100B47004F2F57 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
+		7C4BAE1B24A1F93900DC6A70 /* Hong3StoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hong3StoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hong3StoreAppTapUITests.swift; sourceTree = "<group>"; };
+		7C4BAE1F24A1F93900DC6A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C53D4AA2410AC3F00031CF0 /* Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seperator.swift; sourceTree = "<group>"; };
 		7C53D4AE2410AF9C00031CF0 /* PreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionView.swift; sourceTree = "<group>"; };
 		7C53D4B02410C24700031CF0 /* PreviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTableCell.swift; sourceTree = "<group>"; };
@@ -120,6 +131,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C4BAE1824A1F93900DC6A70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C8331B82499C61000C57BE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +153,7 @@
 			children = (
 				7C36B77A240906C700905F6F /* Hong3Store */,
 				7C8331BC2499C61000C57BE6 /* Hong3StoreTests */,
+				7C4BAE1C24A1F93900DC6A70 /* Hong3StoreUITests */,
 				7C36B779240906C700905F6F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,6 +163,7 @@
 			children = (
 				7C36B778240906C700905F6F /* Hong3Store.app */,
 				7C8331BB2499C61000C57BE6 /* Hong3StoreTests.xctest */,
+				7C4BAE1B24A1F93900DC6A70 /* Hong3StoreUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,6 +252,15 @@
 				7CC4C2B52418D50500E2B014 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7C4BAE1C24A1F93900DC6A70 /* Hong3StoreUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */,
+				7C4BAE1F24A1F93900DC6A70 /* Info.plist */,
+			);
+			path = Hong3StoreUITests;
 			sourceTree = "<group>";
 		};
 		7C53D4AC2410AF2C00031CF0 /* RootViews */ = {
@@ -331,6 +360,24 @@
 			productReference = 7C36B778240906C700905F6F /* Hong3Store.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7C4BAE1A24A1F93900DC6A70 /* Hong3StoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C4BAE2224A1F93900DC6A70 /* Build configuration list for PBXNativeTarget "Hong3StoreUITests" */;
+			buildPhases = (
+				7C4BAE1724A1F93900DC6A70 /* Sources */,
+				7C4BAE1824A1F93900DC6A70 /* Frameworks */,
+				7C4BAE1924A1F93900DC6A70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C4BAE2124A1F93900DC6A70 /* PBXTargetDependency */,
+			);
+			name = Hong3StoreUITests;
+			productName = Hong3StoreUITests;
+			productReference = 7C4BAE1B24A1F93900DC6A70 /* Hong3StoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7C8331BA2499C61000C57BE6 /* Hong3StoreTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C8331C22499C61000C57BE6 /* Build configuration list for PBXNativeTarget "Hong3StoreTests" */;
@@ -362,6 +409,10 @@
 					7C36B777240906C700905F6F = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					7C4BAE1A24A1F93900DC6A70 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 7C36B777240906C700905F6F;
+					};
 					7C8331BA2499C61000C57BE6 = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 7C36B777240906C700905F6F;
@@ -383,6 +434,7 @@
 			targets = (
 				7C36B777240906C700905F6F /* Hong3Store */,
 				7C8331BA2499C61000C57BE6 /* Hong3StoreTests */,
+				7C4BAE1A24A1F93900DC6A70 /* Hong3StoreUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,6 +447,13 @@
 				7C4983EF240CE956004F2F57 /* LaunchScreen.storyboard in Resources */,
 				7C36B785240906C900905F6F /* Assets.xcassets in Resources */,
 				7C36B783240906C700905F6F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C4BAE1924A1F93900DC6A70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +511,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C4BAE1724A1F93900DC6A70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C8331B72499C61000C57BE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +532,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7C4BAE2124A1F93900DC6A70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C36B777240906C700905F6F /* Hong3Store */;
+			targetProxy = 7C4BAE2024A1F93900DC6A70 /* PBXContainerItemProxy */;
+		};
 		7C8331C12499C61000C57BE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7C36B777240906C700905F6F /* Hong3Store */;
@@ -634,6 +706,48 @@
 			};
 			name = Release;
 		};
+		7C4BAE2324A1F93900DC6A70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
+				INFOPLIST_FILE = Hong3StoreUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hongdonghyun.Hong3Player.Hong3StoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hong3Store;
+			};
+			name = Debug;
+		};
+		7C4BAE2424A1F93900DC6A70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
+				INFOPLIST_FILE = Hong3StoreUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hongdonghyun.Hong3Player.Hong3StoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hong3Store;
+			};
+			name = Release;
+		};
 		7C8331C32499C61000C57BE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -693,6 +807,15 @@
 			buildConfigurations = (
 				7C36B78D240906C900905F6F /* Debug */,
 				7C36B78E240906C900905F6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C4BAE2224A1F93900DC6A70 /* Build configuration list for PBXNativeTarget "Hong3StoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C4BAE2324A1F93900DC6A70 /* Debug */,
+				7C4BAE2424A1F93900DC6A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

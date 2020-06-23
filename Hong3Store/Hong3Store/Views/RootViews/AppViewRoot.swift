@@ -9,7 +9,12 @@
 import UIKit
 
 class AppViewRoot: UIView {
-    let tableView = UITableView(style: .grouped, backgroundColor: .white)
+//    let tableView = UITableView(style: .grouped, backgroundColor: .white)
+    let tableView: UITableView = {
+        let tableView = UITableView(style: .grouped, backgroundColor: .white)
+        tableView.accessibilityIdentifier = "rootTableView"
+        return tableView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

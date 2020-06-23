@@ -14,7 +14,11 @@ class DetailTitleCell: UITableViewCell {
     private let topView = UIView()
     private let thumbnailImageView = CachedImageView()
     
-    private let titleLabel = BlackLabel()
+    private let titleLabel: UILabel = {
+        let label = BlackLabel()
+        label.accessibilityIdentifier = "detailTitleLabel"
+        return label
+    }()
     private let subTitleLabel = GrayLabel()
     private let downloadBtn = DownloadButton()
     

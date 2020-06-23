@@ -19,7 +19,10 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
     private var currentSection = 0
     private let topLine = Seperator()
     private let titleLabel = BlackLabel()
-    private let showMoreBtn = LinkLabel(text: "모두 보기")
+    private let showMoreBtn: UILabel = {
+        let label = LinkLabel(text: "모두 보기")
+        return label
+    }()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)

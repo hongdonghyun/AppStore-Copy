@@ -72,21 +72,25 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: PreviewTableCell.identifier, for: indexPath) as! PreviewTableCell
+            cell.accessibilityIdentifier = PreviewTableCell.identifier
             cell.resultArray = itemDict[.newApps]
             cell.delegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
+            cell.accessibilityIdentifier = "topgrossCell"
             cell.resultArray = itemDict[.topgross]
             cell.delegate = self
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
+            cell.accessibilityIdentifier = "freeAllCell"
             cell.resultArray = itemDict[.freeAll]
             cell.delegate = self
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReuseTableCell.identifier, for: indexPath) as! ReuseTableCell
+            cell.accessibilityIdentifier = "paidAllCell"
             cell.resultArray = itemDict[.paidAll]
             cell.delegate = self
             return cell

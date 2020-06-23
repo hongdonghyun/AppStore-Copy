@@ -13,7 +13,11 @@ class PreviewCollectionCell: UICollectionViewCell {
     static let identifier = "PreviewCollectionCell"
     
     private let topLine = Seperator()
-    private let titleLabel = BlackLabel()
+    private let titleLabel: UILabel = {
+        let label = BlackLabel()
+        return label
+        
+    }()
     private let subTitleLabel = GrayLabel()
     private let imageView = CachedImageView()
     
