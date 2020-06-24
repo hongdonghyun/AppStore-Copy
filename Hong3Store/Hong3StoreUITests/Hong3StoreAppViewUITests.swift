@@ -1,6 +1,6 @@
 //
-//  Hong3StoreAppTapUITests.swift
-//  Hong3StoreAppTapUITests
+//  Hong3StoreAppViewUITests.swift
+//  Hong3StoreAppViewUITests
 //
 //  Created by Hongdonghyun on 2020/06/23.
 //  Copyright © 2020 hong3. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Hong3StoreAppTapUITests: XCTestCase {
+class Hong3StoreAppViewUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUpWithError() throws {
@@ -28,7 +28,7 @@ class Hong3StoreAppTapUITests: XCTestCase {
         app = nil
     }
 
-    func test_success_tableViewcells_SwipeLeftRight() throws {
+    func test_success_swipeLeftRight_appViewcells() throws {
         // UI tests must launch the application that they test.
         // Use recording to get started writing UI tests.
         
@@ -59,7 +59,7 @@ class Hong3StoreAppTapUITests: XCTestCase {
                 
     }
     
-    func test_success_rootViewSwipeTopDown() {
+    func test_success_swipeTopDown_rootView() {
         let root = app.tables["rootTableView"]
         root.swipeUp()
         XCTAssertTrue(root.staticTexts["유료 앱"].waitForExistence(timeout: 1))
@@ -69,7 +69,7 @@ class Hong3StoreAppTapUITests: XCTestCase {
         XCTAssertTrue(root.staticTexts["최고매출 앱"].waitForExistence(timeout: 1))
     }
 
-    func test_success_preView_Tap() {
+    func test_success_tap_preView() {
         let preViewCell = app.tables.cells["PreviewTableCell"]
         
         preViewCell.swipeLeft()
@@ -80,22 +80,34 @@ class Hong3StoreAppTapUITests: XCTestCase {
     
     func test_success_tap_topgrossView() {
         let topgrossCell = app.tables.cells["topgrossCell"]
+                
         topgrossCell.swipeLeft()
         topgrossCell.tap()
         XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
         app.navigationBars.buttons.element(boundBy: 0).tap()
+
+    }
+    
+    func test_success_moreBtn_tap_topgrossView() {
+        let header = app.tables.otherElements["headerView"].firstMatch
+        header.buttons.element(matching: .any, identifier: "showAll").tap()
+        app.tables.cells.firstMatch.tap()
+        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        app.buttons["downloadBtn"].firstMatch.tap()
         
     }
     
     func test_success_display_detailView() {
         let preViewCell = app.tables.cells["PreviewTableCell"]
         preViewCell.tap()
-//        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
-//        XCTAssertTrue(app.staticTexts["새로운 기능"].waitForExistence(timeout: 1))
+        app.buttons.element(matching: .any, identifier: "detailMoreBtn").tap()
+        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
+        XCTAssertTrue(app.staticTexts["새로운 기능"].waitForExistence(timeout: 1))
     }
     
-    func test_success_moreBtn_tap_detailView() {
-        app.buttons.element(matching: .any, identifier: "detailMoreBtn").tap()
-    }
+//    func test_success_moreBtn_tap_detailView() {
+
+//    }
     
 }

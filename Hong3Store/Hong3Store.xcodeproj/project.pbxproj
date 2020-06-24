@@ -24,7 +24,7 @@
 		7C42E12A241897D0002190ED /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42E129241897D0002190ED /* CustomLabel.swift */; };
 		7C4983EF240CE956004F2F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C4983EE240CE956004F2F57 /* LaunchScreen.storyboard */; };
 		7C49841C24100B47004F2F57 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C49841B24100B47004F2F57 /* CustomFlowLayout.swift */; };
-		7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */; };
+		7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppViewUITests.swift */; };
 		7C53D4AB2410AC3F00031CF0 /* Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4AA2410AC3F00031CF0 /* Seperator.swift */; };
 		7C53D4AF2410AF9C00031CF0 /* PreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4AE2410AF9C00031CF0 /* PreviewCollectionView.swift */; };
 		7C53D4B12410C24700031CF0 /* PreviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D4B02410C24700031CF0 /* PreviewTableCell.swift */; };
@@ -91,7 +91,7 @@
 		7C4983EE240CE956004F2F57 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C49841B24100B47004F2F57 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		7C4BAE1B24A1F93900DC6A70 /* Hong3StoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hong3StoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hong3StoreAppTapUITests.swift; sourceTree = "<group>"; };
+		7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hong3StoreAppViewUITests.swift; sourceTree = "<group>"; };
 		7C4BAE1F24A1F93900DC6A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C53D4AA2410AC3F00031CF0 /* Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seperator.swift; sourceTree = "<group>"; };
 		7C53D4AE2410AF9C00031CF0 /* PreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionView.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 		7C4BAE1C24A1F93900DC6A70 /* Hong3StoreUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift */,
+				7C4BAE1D24A1F93900DC6A70 /* Hong3StoreAppViewUITests.swift */,
 				7C4BAE1F24A1F93900DC6A70 /* Info.plist */,
 			);
 			path = Hong3StoreUITests;
@@ -515,7 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppTapUITests.swift in Sources */,
+				7C4BAE1E24A1F93900DC6A70 /* Hong3StoreAppViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
