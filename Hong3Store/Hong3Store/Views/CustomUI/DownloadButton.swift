@@ -11,6 +11,7 @@ import UIKit
 class DownloadButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.accessibilityIdentifier = "downloadBtn"
         self.setTitle("     받기     ", for: .normal)
         self.titleLabel?.font = .boldSystemFont(ofSize: 16)
         self.backgroundColor = .quaternaryLabel

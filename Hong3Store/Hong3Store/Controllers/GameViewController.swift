@@ -91,9 +91,10 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GameViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String, title: String, rank: Int) {
+    func cellTapped(itemId: String, title: String, rank: Int, appStoreURL: String) {
         let detailVC = DetailViewController()
-        detailVC.configure(id: itemId, title: title, rankInt: rank)
+        print(appStoreURL)
+        detailVC.configure(id: itemId, title: title, rankInt: rank, appStoreURL: appStoreURL)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

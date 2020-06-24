@@ -28,7 +28,7 @@ class Hong3StoreAppTapUITests: XCTestCase {
         app = nil
     }
 
-    func test_tableViewcells_SwipeLeftRight() throws {
+    func test_success_tableViewcells_SwipeLeftRight() throws {
         // UI tests must launch the application that they test.
         // Use recording to get started writing UI tests.
         
@@ -40,20 +40,16 @@ class Hong3StoreAppTapUITests: XCTestCase {
         let paidAllCell = app.tables.cells["paidAllCell"]
         
         preViewCell.swipeLeft()
-        preViewCell.swipeLeft()
         preViewCell.swipeRight()
         
-        topgrossCell.swipeLeft()
         topgrossCell.swipeLeft()
         topgrossCell.swipeRight()
         
         root.swipeUp()
         
         freeAllCell.swipeLeft()
-        freeAllCell.swipeLeft()
         freeAllCell.swipeRight()
         
-        paidAllCell.swipeLeft()
         paidAllCell.swipeLeft()
         paidAllCell.swipeRight()
         
@@ -63,7 +59,7 @@ class Hong3StoreAppTapUITests: XCTestCase {
                 
     }
     
-    func test_rootViewSwipeTopDown() {
+    func test_success_rootViewSwipeTopDown() {
         let root = app.tables["rootTableView"]
         root.swipeUp()
         XCTAssertTrue(root.staticTexts["유료 앱"].waitForExistence(timeout: 1))
@@ -73,11 +69,8 @@ class Hong3StoreAppTapUITests: XCTestCase {
         XCTAssertTrue(root.staticTexts["최고매출 앱"].waitForExistence(timeout: 1))
     }
 
-    func test_preView_Tap() {
+    func test_success_preView_Tap() {
         let preViewCell = app.tables.cells["PreviewTableCell"]
-        preViewCell.tap()
-        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
-        app.navigationBars.buttons.element(boundBy: 0).tap()
         
         preViewCell.swipeLeft()
         preViewCell.tap()
@@ -85,17 +78,24 @@ class Hong3StoreAppTapUITests: XCTestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
     }
     
-    func test_topgrossView_tap() {
+    func test_success_tap_topgrossView() {
         let topgrossCell = app.tables.cells["topgrossCell"]
-        topgrossCell.tap()
-        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
-        app.navigationBars.buttons.element(boundBy: 0).tap()
-        
         topgrossCell.swipeLeft()
         topgrossCell.tap()
         XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
         app.navigationBars.buttons.element(boundBy: 0).tap()
         
+    }
+    
+    func test_success_display_detailView() {
+        let preViewCell = app.tables.cells["PreviewTableCell"]
+        preViewCell.tap()
+//        XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
+//        XCTAssertTrue(app.staticTexts["새로운 기능"].waitForExistence(timeout: 1))
+    }
+    
+    func test_success_moreBtn_tap_detailView() {
+        app.buttons.element(matching: .any, identifier: "detailMoreBtn").tap()
     }
     
 }

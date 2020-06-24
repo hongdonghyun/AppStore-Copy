@@ -21,6 +21,7 @@ class ReuseHeaderCell: UITableViewHeaderFooterView {
     private let titleLabel = BlackLabel()
     private let showMoreBtn: UILabel = {
         let label = LinkLabel(text: "모두 보기")
+        label.accessibilityIdentifier = "showAll"
         return label
     }()
     

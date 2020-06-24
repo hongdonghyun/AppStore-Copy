@@ -69,7 +69,7 @@ extension ReuseTableCell: UICollectionViewDelegate {
         guard let item = resultArray?[indexPath.row] else { return }
         if delegate != nil {
             
-            delegate?.cellTapped(itemId: item.id, title: item.name, rank: indexPath.item)
+            delegate?.cellTapped(itemId: item.id, title: item.name, rank: indexPath.item, appStoreURL: item.url)
         }
     }
 }
@@ -86,7 +86,7 @@ extension ReuseTableCell: UICollectionViewDataSource {
         }
         if let resultArray = resultArray, !resultArray.isEmpty {
             let item = resultArray[indexPath.row]
-            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100, appStoreURL: item.artistURL, underLineisHidden: (indexPath.item + 1) % 3 == 0)
+            cell.configure(title: item.name, subTitle: item.artistName, imageURL: item.artworkUrl100, appStoreURL: item.url, underLineisHidden: (indexPath.item + 1) % 3 == 0)
         }
         return cell
     }

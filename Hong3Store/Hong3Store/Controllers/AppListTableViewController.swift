@@ -36,7 +36,7 @@ class AppListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = appList[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AppListTableCell.identifier, for: indexPath) as? AppListTableCell else { return UITableViewCell() }
-        cell.configure(title: item.name, subTitle: item.artistName, imageUrl: item.artworkUrl100, id: item.id, appStoreURL: item.artistURL)
+        cell.configure(title: item.name, subTitle: item.artistName, imageUrl: item.artworkUrl100, id: item.id, appStoreURL: item.url)
         return cell
     }
     
@@ -46,7 +46,7 @@ extension AppListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = appList[indexPath.row]
         let detailVC = DetailViewController()
-        detailVC.configure(id: item.id, title: item.name, rankInt: indexPath.row)
+        detailVC.configure(id: item.id, title: item.name, rankInt: indexPath.row, appStoreURL: item.url)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

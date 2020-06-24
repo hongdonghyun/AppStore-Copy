@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CollectionCellDidSelected: class {
-    func cellTapped(itemId: String, title: String, rank: Int)
+    func cellTapped(itemId: String, title: String, rank: Int, appStoreURL: String)
 }
 
 class AppViewController: UIViewController {
@@ -51,6 +51,7 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                 ReuseHeaderCell.identifier) as! ReuseHeaderCell
+            headerView.accessibilityIdentifier = "headerView"
             headerView.configure(title: sections[section], section: section)
             headerView.delegate = self
             return headerView
@@ -102,9 +103,9 @@ extension AppViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension AppViewController: CollectionCellDidSelected {
-    func cellTapped(itemId: String, title: String, rank: Int) {
+    func cellTapped(itemId: String, title: String, rank: Int, appStoreURL: String) {
         let detailVC = DetailViewController()
-        detailVC.configure(id: itemId, title: title, rankInt: rank)
+        detailVC.configure(id: itemId, title: title, rankInt: rank, appStoreURL: appStoreURL)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

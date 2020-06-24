@@ -22,7 +22,11 @@ class DetailNewFunctionCell: UITableViewCell {
     
     private let descriptionView = UIView()
     private let descriptionLabel = BlackLabel()
-    private var moreBtn = LinkLabel(text: "   더 보기 ")
+    private var moreBtn: UILabel = {
+        let label = LinkLabel(text: "   더 보기 ")
+        label.accessibilityIdentifier = "detailMoreBtn"
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

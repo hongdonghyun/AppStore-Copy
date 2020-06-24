@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     private var dataCount = 4
     private var rank: Int?
     var itemId: String?
+    var downloadLink: String?
     var detailInfo: InfoResult? {
         willSet {
             if newValue?.releaseNotes != nil {
@@ -89,7 +90,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 reviewCnt: info.userRatingCount,
                 genre:info.genres.first ?? "",
                 age: info.contentAdvisoryRating,
-                appStoreURL: info.trackViewURL,
+                appStoreURL: downloadLink,
                 rank: (rank ?? 0) + 1
                 )
             return cell
@@ -144,9 +145,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DetailViewController {
-    func configure(id: String, title: String, rankInt: Int) {
+    func configure(id: String, title: String, rankInt: Int, appStoreURL: String) {
         itemId = id
         rank = rankInt
+        downloadLink = appStoreURL
         self.navigationItem.title = title
     }
     

@@ -66,8 +66,8 @@ extension DetailTitleCell {
         rankDescriptionLabel.text = genre
         ageLabel.text = age
         rankLabel.text = "#\(rank)"
-        
-        if let url = appStoreURL { downloadBtn.url = URL(string: url) }
+        if let url = appStoreURL {
+            downloadBtn.url = URL(string: url) }
         
     }
 }
