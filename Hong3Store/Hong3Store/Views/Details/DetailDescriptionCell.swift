@@ -13,7 +13,12 @@ class DetailDescriptionCell: UITableViewCell {
     weak var delegate: DetailTableCellMoreBtnSelected?
     private var sellerURL: URL?
     private let descrpitionView = UIView()
-    private let infoView = UIView()
+    private let infoView: UIView = {
+       let view = UIView()
+        view.accessibilityIdentifier = "DetailInfoView"
+        view.isAccessibilityElement = true
+        return view
+    }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -35,7 +40,7 @@ class DetailDescriptionCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.accessibilityIdentifier = "DetailDescriptionCell"
     }
     
     override func layoutSubviews() {

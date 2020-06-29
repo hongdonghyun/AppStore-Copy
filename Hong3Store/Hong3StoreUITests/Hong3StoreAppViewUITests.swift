@@ -115,10 +115,12 @@ class Hong3StoreAppViewUITests: XCTestCase {
     
     func test_success_display_detailView() {
         
-        let preViewCell = app.tables.cells["PreviewTableCell"]
-        preViewCell.tap()
+        let previewCell = app.tables.cells["PreviewTableCell"]
+        let detailPreviewCell = app.tables.cells["DetailPreviewCell"]
+        let detailDescrptionCell = app.tables.cells["DetailDescriptionCell"]
+        previewCell.tap()
         app.buttons["downloadBtn"].firstMatch.tap()
-        // iOS 11
+//        // iOS 11
         _ = safari.wait(for: .runningForeground, timeout: 5)
         app.activate()
         
@@ -127,12 +129,17 @@ class Hong3StoreAppViewUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["detailTitleLabel"].waitForExistence(timeout: 1))
         XCTAssertTrue(app.staticTexts["새로운 기능"].waitForExistence(timeout: 1))
         
-        app.swipeUp()
         
-        app.staticTexts["PreviewCollectionView"].swipeLeft()
-        app.staticTexts["PreviewCollectionView"].swipeLeft()
-        app.staticTexts["PreviewCollectionView"].swipeRight()
-        app.staticTexts["PreviewCollectionView"].swipeRight()
+        
+        detailPreviewCell.swipeLeft()
+        app.swipeUp()
+        detailPreviewCell.swipeLeft()
+        detailPreviewCell.swipeRight()
+        detailPreviewCell.swipeRight()
+        
+        app.otherElements["DetailInfoView"].tap()
+        _ = safari.wait(for: .runningForeground, timeout: 5)
+        app.activate()
         
         addTeardownBlock {
             self.safari = nil

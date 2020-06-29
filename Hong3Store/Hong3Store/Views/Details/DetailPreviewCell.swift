@@ -17,10 +17,15 @@ class DetailPreviewCell: UITableViewCell {
     }
     private let titleLabel = BlackLabel(text: "미리보기")
     
-    private let collectionView = PreviewCollectionView(frame: .zero, collectionViewLayout: SnapCenterLayout())
+    private let collectionView: UICollectionView = {
+        let collectionView = PreviewCollectionView(frame: .zero, collectionViewLayout: SnapCenterLayout())
+        collectionView.accessibilityIdentifier = "PreviewCollectionView"
+        return collectionView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.accessibilityIdentifier = "DetailPreviewCell"
         setupUI()
     }
     
